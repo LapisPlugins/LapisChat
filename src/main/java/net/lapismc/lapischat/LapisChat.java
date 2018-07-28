@@ -1,5 +1,7 @@
 package net.lapismc.lapischat;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import net.lapismc.lapischat.api.ChannelAPI;
 import net.lapismc.lapischat.channels.Global;
 import net.lapismc.lapischat.channels.Local;
@@ -8,8 +10,8 @@ import net.lapismc.lapischat.framework.ChatPlayer;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 public final class LapisChat extends JavaPlugin {
 
@@ -18,7 +20,7 @@ public final class LapisChat extends JavaPlugin {
     public LapisChatConfiguration config;
     String primaryColor = ChatColor.WHITE.toString();
     String secondaryColor = ChatColor.AQUA.toString();
-    private HashMap<UUID, ChatPlayer> players = new HashMap<>();
+    private Cache<UUID, ChatPlayer> players = CacheBuilder.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();
 
     public static LapisChat getInstance() {
         return instance;
@@ -38,16 +40,16 @@ public final class LapisChat extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        for (ChatPlayer player : players.values()) {
+        for (ChatPlayer player : players.asMap().values()) {
             player.savePlayerData();
         }
     }
 
     public ChatPlayer getPlayer(UUID uuid) {
-        if (!players.containsKey(uuid)) {
+        if (players.getIfPresent(uuid) == null) {
             players.put(uuid, new ChatPlayer(uuid));
         }
-        return players.get(uuid);
+        return players.getIfPresent(uuid);
     }
 
     private void registerCommands() {

@@ -58,12 +58,8 @@ public abstract class Channel {
         return name;
     }
 
-    public String getPrefix() {
+    private String getPrefix() {
         return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix = prefix;
     }
 
     public Permission getPermission() {

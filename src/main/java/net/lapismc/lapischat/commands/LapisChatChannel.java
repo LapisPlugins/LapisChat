@@ -33,6 +33,10 @@ public class LapisChatChannel extends LapisChatCommand {
                         sendChannelMessage(p.getPlayer(), "Channel.Banned", channel);
                         return;
                     }
+                    if (!isPermitted(sender, channel.getPermission().getName())) {
+                        sendChannelMessage(sender, "Channel.NotPermitted", channel);
+                        p.removeChannel(channel);
+                    }
                     if (p.getChannels().contains(channel)) {
                         p.setMainChannel(channel);
                         sendChannelMessage(sender, "Channel.Set", channel);
@@ -67,6 +71,10 @@ public class LapisChatChannel extends LapisChatCommand {
                         if (p.isBannedFromChannel(channel)) {
                             sendChannelMessage(p.getPlayer(), "Channel.Banned", channel);
                             return;
+                        }
+                        if (!isPermitted(sender, channel.getPermission().getName())) {
+                            sendChannelMessage(sender, "Channel.NotPermitted", channel);
+                            p.removeChannel(channel);
                         }
                         if (p.isInChannel(channel)) {
                             sendChannelMessage(sender, "Channel.AlreadyInChannel", channel);

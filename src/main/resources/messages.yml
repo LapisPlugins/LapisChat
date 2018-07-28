@@ -12,6 +12,7 @@ Channel:
   Kicked: "&pYou have been kicked from &s%CHANNEL%"
   Banned: "&pYou are banned from &s%CHANNEL%"
   Unbanned: "&pYour ban for &s%CHANNEL%&p has been removed"
+  NotPermitted: "&pYou aren't permitted to join &s%CHANNEL%"
 
 Moderator:
   Banned: "&s%PLAYER%&p has been banned from &s%CHANNEL%"
@@ -22,3 +23,4 @@ Error:
   MustBePlayer: "&4You must be a player to use this command"
   NotPermitted: "&4You aren't permitted to do this"
   ChannelDoesNotExist: "&4A channel of that name doesn't exist!"
+  RateLimited: "&4You are sending messages to fast, Please slow down!"

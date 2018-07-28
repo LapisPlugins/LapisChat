@@ -4,6 +4,9 @@ ConfigVersion: 1
 # You can use PlaceholderAPI tags here if it is installed
 DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} > {MESSAGE}"
 
+# How often in milliseconds can a player send a message
+RateLimit: 1000
+
 Channels:
   Global:
     Prefix: "[G]"

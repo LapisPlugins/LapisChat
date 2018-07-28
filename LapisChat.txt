@@ -4,12 +4,6 @@ Faction Channels(in an addon):
 	Factions
 	Allies
 
-Permissions based join
-
-Per channel moderation(with individual perms)
-
-Message rate limit?
-
 Cross Server support?
 
 Player Data
