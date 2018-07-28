@@ -52,7 +52,7 @@ public class LapisChatConfiguration {
         checkConfigVersions();
     }
 
-    private void generateConfigs() {
+    void generateConfigs() {
         plugin.saveDefaultConfig();
         //if the messages file doesn't exist, extract it from the jar file and place it in the plugin dir
         if (!messagesFile.exists()) {

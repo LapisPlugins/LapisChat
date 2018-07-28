@@ -5,7 +5,6 @@ import net.lapismc.lapischat.framework.Channel;
 import net.lapismc.lapischat.framework.ChatPlayer;
 import net.lapismc.lapischat.utils.LapisChatCommand;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class LapisChatChannel extends LapisChatCommand {
     }
 
     @Override
-    public void onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
+    public void onCommand(CommandSender sender, String[] args) {
         if (args.length == 0 || args.length > 3) {
             sendCommandHelp(sender);
         } else {
@@ -33,7 +32,7 @@ public class LapisChatChannel extends LapisChatCommand {
                         sendChannelMessage(p.getPlayer(), "Channel.Banned", channel);
                         return;
                     }
-                    if (!isPermitted(sender, channel.getPermission().getName())) {
+                    if (isNotPermitted(sender, channel.getPermission().getName())) {
                         sendChannelMessage(sender, "Channel.NotPermitted", channel);
                         p.removeChannel(channel);
                     }
@@ -73,7 +72,7 @@ public class LapisChatChannel extends LapisChatCommand {
                             sendChannelMessage(p.getPlayer(), "Channel.Banned", channel);
                             return;
                         }
-                        if (!isPermitted(sender, channel.getPermission().getName())) {
+                        if (isNotPermitted(sender, channel.getPermission().getName())) {
                             sendChannelMessage(sender, "Channel.NotPermitted", channel);
                             p.removeChannel(channel);
                         }
@@ -92,7 +91,7 @@ public class LapisChatChannel extends LapisChatCommand {
                 String channelName = args[0];
                 String command = args[1];
                 String playerName = args[2];
-                if (!isPermitted(sender, "LapisChat.Moderate." + channelName)) {
+                if (isNotPermitted(sender, "LapisChat.Moderate." + channelName)) {
                     sendMessage(sender, "Error.NotPermitted");
                     return;
                 }

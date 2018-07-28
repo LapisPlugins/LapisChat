@@ -20,7 +20,6 @@ import net.lapismc.lapischat.LapisChat;
 import net.lapismc.lapischat.framework.Channel;
 import net.lapismc.lapischat.framework.ChatPlayer;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandMap;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.defaults.BukkitCommand;
@@ -33,7 +32,7 @@ public abstract class LapisChatCommand extends BukkitCommand {
 
     protected LapisChat plugin;
 
-    public LapisChatCommand(LapisChat plugin, String name, String desc, ArrayList<String> aliases) {
+    protected LapisChatCommand(LapisChat plugin, String name, String desc, ArrayList<String> aliases) {
         super(name);
         this.plugin = plugin;
         setDescription(desc);
@@ -69,12 +68,12 @@ public abstract class LapisChatCommand extends BukkitCommand {
                 .replace("%PLAYER%", player.getOfflinePlayer().getName()));
     }
 
-    protected boolean isPermitted(CommandSender sender, String permission) {
+    protected boolean isNotPermitted(CommandSender sender, String permission) {
         if (!(sender instanceof Player)) {
-            return true;
+            return false;
         }
         Player p = (Player) sender;
-        return p.hasPermission(permission);
+        return !p.hasPermission(permission);
     }
 
     private void registerCommand(String name) {
@@ -90,10 +89,10 @@ public abstract class LapisChatCommand extends BukkitCommand {
 
     @Override
     public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-        onCommand(sender, this, commandLabel, args);
+        onCommand(sender, args);
         return true;
     }
 
-    public abstract void onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args);
+    protected abstract void onCommand(CommandSender sender, String[] args);
 
 }

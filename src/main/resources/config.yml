@@ -1,5 +1,11 @@
 ConfigVersion: 1
 
+Update:
+  # Notify console of updates?
+  Notify: true
+  # Automatically download and install updates
+  Download: false
+
 # Double spaces will be removed, so if a player doesn't have a prefix there wont be a big gap
 # You can use PlaceholderAPI tags here if it is installed
 DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} &7>&f {MESSAGE}"

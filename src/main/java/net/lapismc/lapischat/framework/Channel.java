@@ -21,7 +21,7 @@ public abstract class Channel {
     private String shortName;
     private List<ChatPlayer> players = new ArrayList<>();
 
-    public Channel(String name, String shortName, String prefix, Permission perm) {
+    protected Channel(String name, String shortName, String prefix, Permission perm) {
         this.name = name;
         this.shortName = shortName;
         this.prefix = prefix;
@@ -60,7 +60,7 @@ public abstract class Channel {
         players.remove(p);
     }
 
-    public List<ChatPlayer> getRecipients(ChatPlayer p) {
+    protected List<ChatPlayer> getRecipients(ChatPlayer p) {
         return players;
     }
 

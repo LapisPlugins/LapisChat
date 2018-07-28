@@ -15,7 +15,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class LapisChatListeners implements Listener {
+class LapisChatListeners implements Listener {
 
     private LapisChat plugin;
     private Cache<ChatPlayer, String> lastMessage;
