@@ -10,7 +10,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class LapisChatListeners implements Listener {
@@ -23,6 +25,24 @@ public class LapisChatListeners implements Listener {
         lastMessage = CacheBuilder.newBuilder()
                 .expireAfterWrite(plugin.getConfig().getInt("RateLimit"), TimeUnit.MILLISECONDS).build();
         Bukkit.getPluginManager().registerEvents(this, plugin);
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent e) {
+        File file = new File(plugin.getDataFolder() + File.separator + "Players"
+                + File.separator + e.getPlayer().getUniqueId() + ".yml");
+        if (!file.exists()) {
+            for (Channel channel : plugin.channelManager.getChannels()) {
+                if (e.getPlayer().hasPermission("LapisChat.AutoJoin." + channel.getName())) {
+                    plugin.getPlayer(e.getPlayer().getUniqueId()).addChannel(channel);
+                }
+            }
+        }
+        for (Channel channel : plugin.channelManager.getChannels()) {
+            if (e.getPlayer().hasPermission("LapisChat.SetMain." + channel.getName())) {
+                plugin.getPlayer(e.getPlayer().getUniqueId()).setMainChannel(channel);
+            }
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGHEST)
