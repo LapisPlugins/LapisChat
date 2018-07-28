@@ -45,6 +45,17 @@ public abstract class Channel {
         return LapisChat.getInstance().getConfig().getString("DefaultFormat");
     }
 
+    public String getFormat() {
+        if (format == null) {
+            return getDefaultFormat();
+        }
+        return format;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
+    }
+
     void addPlayer(ChatPlayer p) {
         players.add(p);
     }
@@ -73,8 +84,8 @@ public abstract class Channel {
         return perm;
     }
 
-    public void sendMessage(ChatPlayer from, String msg) {
-        msg = format(from, msg);
+    public void sendMessage(ChatPlayer from, String msg, String format) {
+        msg = format(from, msg, format);
         for (ChatPlayer p : getRecipients(from)) {
             p.sendMessage(msg);
         }
@@ -84,7 +95,7 @@ public abstract class Channel {
         Bukkit.getLogger().info(msg);
     }
 
-    protected String applyDefaultFormat(ChatPlayer from, String msg) {
+    protected String applyDefaultFormat(ChatPlayer from, String msg, String format) {
         String finalMessage = format;
         String playerPrefix = vaultChat.getPlayerPrefix(from.getPlayer());
         String playerSuffix = vaultChat.getPlayerSuffix(from.getPlayer());
@@ -102,5 +113,5 @@ public abstract class Channel {
         return finalMessage;
     }
 
-    protected abstract String format(ChatPlayer from, String msg);
+    protected abstract String format(ChatPlayer from, String msg, String format);
 }

@@ -17,8 +17,8 @@ public class Local extends Channel {
     }
 
     @Override
-    protected String format(ChatPlayer from, String msg) {
-        return applyDefaultFormat(from, msg);
+    protected String format(ChatPlayer from, String msg, String format) {
+        return applyDefaultFormat(from, msg, format);
     }
 
     @Override

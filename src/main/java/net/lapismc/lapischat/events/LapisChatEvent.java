@@ -13,12 +13,14 @@ public class LapisChatEvent extends Event implements Cancellable {
     private Channel channel;
     private ChatPlayer sender;
     private String message;
+    private String format;
     private boolean cancelled;
 
     public LapisChatEvent(Channel channel, ChatPlayer sender, String message) {
         this.channel = channel;
         this.sender = sender;
         this.message = message;
+        format = channel.getFormat();
     }
 
     public static HandlerList getHandlerList() {
@@ -38,7 +40,11 @@ public class LapisChatEvent extends Event implements Cancellable {
     }
 
     public void applyFormat(String placeholder, String value) {
-        message = message.replace(placeholder, value);
+        format = format.replace(placeholder, value);
+    }
+
+    public String getFormat() {
+        return format;
     }
 
     @Override

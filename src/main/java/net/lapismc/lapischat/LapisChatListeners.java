@@ -42,7 +42,7 @@ public class LapisChatListeners implements Listener {
         LapisChatEvent event = new LapisChatEvent(channel, player, e.getMessage());
         Bukkit.getPluginManager().callEvent(event);
         if (!event.isCancelled()) {
-            channel.sendMessage(player, event.getMessage());
+            channel.sendMessage(player, event.getMessage(), event.getFormat());
         }
     }
 

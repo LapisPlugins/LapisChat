@@ -12,7 +12,7 @@ public class Global extends Channel {
     }
 
     @Override
-    public String format(ChatPlayer from, String msg) {
-        return applyDefaultFormat(from, msg);
+    public String format(ChatPlayer from, String msg, String format) {
+        return applyDefaultFormat(from, msg, format);
     }
 }
