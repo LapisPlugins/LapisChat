@@ -26,6 +26,10 @@ public class ChannelManager {
         return channels;
     }
 
+    public boolean doesChannelExist(String name) {
+        return getChannel(name) != null;
+    }
+
     public Channel getChannel(String name) {
         for (Channel channel : channels) {
             if (channel.getName().equalsIgnoreCase(name)) {

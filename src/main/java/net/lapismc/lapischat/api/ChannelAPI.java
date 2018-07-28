@@ -6,22 +6,20 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ChannelAPI {
 
-    private static LapisChat plugin;
-
-    public ChannelAPI(LapisChat plugin) {
-        ChannelAPI.plugin = plugin;
-    }
-
     public ChannelAPI(JavaPlugin plugin) {
-        ChannelAPI.plugin.getLogger().info("Plugin " + plugin.getName() + " has hooked into the Channel API");
+        LapisChat.getInstance().getLogger().info("Plugin " + plugin.getName() + " has hooked into the Channel API");
     }
 
     public void addChannel(Channel channel) {
-        plugin.channelManager.addChannel(channel);
+        LapisChat.getInstance().channelManager.addChannel(channel);
+    }
+
+    public void removeChannel(Channel channel) {
+        LapisChat.getInstance().channelManager.removeChannel(channel);
     }
 
     public Channel getChannel(String name) {
-        return plugin.channelManager.getChannel(name);
+        return LapisChat.getInstance().channelManager.getChannel(name);
     }
 
 }

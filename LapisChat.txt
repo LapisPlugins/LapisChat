@@ -1,16 +1,18 @@
 LapisChat
 
-Channels: 
-	Global
-	Local
 Faction Channels(in an addon):
 	Factions
 	Allies
 
 Permissions based join
 
-Message rate limit
+Per channel moderation(with individual perms)
 
-Channel moderation
+Message rate limit?
 
 Cross Server support?
+
+Player Data
+Channel: Main Channel
+Channels: List of joined channels
+Banned: List of channels this player is banned from (Doesn't exist if they aren't banned)

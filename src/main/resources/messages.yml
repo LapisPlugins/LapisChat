@@ -1,0 +1,24 @@
+ConfigVersion: 1
+
+PrimaryColor: "&f"
+SecondaryColor: "&b"
+
+Channel:
+  Joined: "&pYou are now listening to &s%CHANNEL%"
+  Left: "&pYou will no longer receive messages from &s%CHANNEL%"
+  Set: "&pYou are now chatting in &s%CHANNEL%"
+  NotInChannel: "&pYou aren't in &s%CHANNEL%"
+  AlreadyInChannel: "&pYou are already in &s%CHANNEL%"
+  Kicked: "&pYou have been kicked from &s%CHANNEL%"
+  Banned: "&pYou are banned from &s%CHANNEL%"
+  Unbanned: "&pYour ban for &s%CHANNEL%&p has been removed"
+
+Moderator:
+  Banned: "&s%PLAYER%&p has been banned from &s%CHANNEL%"
+  Kicked: "&s%PLAYER%&p has been kicked from &s%CHANNEL%"
+  Unbanned: "&s%PLAYER%&p has been unbanned from &s%CHANNEL%"
+
+Error:
+  MustBePlayer: "&4You must be a player to use this command"
+  NotPermitted: "&4You aren't permitted to do this"
+  ChannelDoesNotExist: "&4A channel of that name doesn't exist!"

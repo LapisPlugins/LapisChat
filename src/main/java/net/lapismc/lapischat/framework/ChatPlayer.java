@@ -17,11 +17,7 @@ public class ChatPlayer {
     private UUID uuid;
     private Channel mainChannel;
     private List<Channel> channels = new ArrayList<>();
-
-    public ChatPlayer(OfflinePlayer op) {
-        this.uuid = op.getUniqueId();
-        loadPlayerData();
-    }
+    private List<Channel> bannedChannels = new ArrayList<>();
 
     public ChatPlayer(UUID uuid) {
         this.uuid = uuid;
@@ -54,8 +50,25 @@ public class ChatPlayer {
         channels.remove(channel);
     }
 
+    public void banFromChannel(Channel channel) {
+        removeChannel(channel);
+        bannedChannels.add(channel);
+    }
+
+    public boolean isBannedFromChannel(Channel channel) {
+        return bannedChannels.contains(channel);
+    }
+
+    public void unBanFromChannel(Channel channel) {
+        bannedChannels.remove(channel);
+    }
+
     public List<Channel> getChannels() {
         return channels;
+    }
+
+    public boolean isInChannel(Channel channel) {
+        return getChannels().contains(channel);
     }
 
     void sendMessage(String msg) {
