@@ -1,0 +1,16 @@
+LapisChat
+
+Channels: 
+	Global
+	Local
+Faction Channels(in an addon):
+	Factions
+	Allies
+
+Permissions based join
+
+Message rate limit
+
+Channel moderation
+
+Cross Server support?

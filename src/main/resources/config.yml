@@ -1,0 +1,13 @@
+ConfigVersion: 1
+
+# Double spaces will be removed, so if a player doesn't have a prefix there wont be a big gap
+# You can use PlaceholderAPI tags here if it is installed
+DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} > {MESSAGE}"
+
+Channels:
+  Global:
+    Prefix: "[G]"
+  Local:
+    Prefix: "[L]"
+    # Distance in blocks, this is the distance messages will travel in the local channel
+    Range: 100
