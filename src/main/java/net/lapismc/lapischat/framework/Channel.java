@@ -52,10 +52,6 @@ public abstract class Channel {
         return format;
     }
 
-    public void setFormat(String format) {
-        this.format = format;
-    }
-
     void addPlayer(ChatPlayer p) {
         players.add(p);
     }
