@@ -18,10 +18,12 @@ public abstract class Channel {
     private String format;
     private Chat vaultChat;
     private Permission perm;
+    private String shortName;
     private List<ChatPlayer> players = new ArrayList<>();
 
-    public Channel(String name, String prefix, Permission perm) {
+    public Channel(String name, String shortName, String prefix, Permission perm) {
         this.name = name;
+        this.shortName = shortName;
         this.prefix = prefix;
         this.format = getDefaultFormat();
         this.perm = perm;
@@ -29,8 +31,9 @@ public abstract class Channel {
         vaultChat = rsp.getProvider();
     }
 
-    public Channel(String name, String prefix, Permission perm, String format) {
+    public Channel(String name, String shortName, String prefix, Permission perm, String format) {
         this.name = name;
+        this.shortName = shortName;
         this.prefix = prefix;
         this.format = format;
         this.perm = perm;
@@ -58,6 +61,10 @@ public abstract class Channel {
         return name;
     }
 
+    public String getShortName() {
+        return shortName;
+    }
+
     private String getPrefix() {
         return prefix;
     }
@@ -71,6 +78,10 @@ public abstract class Channel {
         for (ChatPlayer p : getRecipients(from)) {
             p.sendMessage(msg);
         }
+        if (LapisChat.getInstance().getConfig().getBoolean("StripColorFromConsole")) {
+            msg = ChatColor.stripColor(msg);
+        }
+        Bukkit.getLogger().info(msg);
     }
 
     protected String applyDefaultFormat(ChatPlayer from, String msg) {
@@ -82,7 +93,7 @@ public abstract class Channel {
         finalMessage = finalMessage.replace("{NAME}", from.getPlayer().getDisplayName());
         finalMessage = finalMessage.replace("{SUFFIX}", playerSuffix);
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            finalMessage = new PlaceholderAPIHook().format(format, from.getOfflinePlayer());
+            finalMessage = new PlaceholderAPIHook().format(finalMessage, from.getOfflinePlayer());
         } else {
             finalMessage = ChatColor.translateAlternateColorCodes('&', finalMessage);
         }

@@ -44,6 +44,7 @@ public class LapisChatChannel extends LapisChatCommand {
                         sendChannelMessage(sender, "Channel.Joined", channel);
                         sendChannelMessage(sender, "Channel.Set", channel);
                         p.addChannel(channel);
+                        p.setMainChannel(channel);
                     }
                 } else {
                     sendMessage(sender, "Error.ChannelDoesNotExist");
@@ -80,7 +81,7 @@ public class LapisChatChannel extends LapisChatCommand {
                             sendChannelMessage(sender, "Channel.AlreadyInChannel", channel);
                         } else {
                             p.addChannel(channel);
-                            sendChannelMessage(sender, "Channel.Join", channel);
+                            sendChannelMessage(sender, "Channel.Joined", channel);
                         }
                     }
                 } else {

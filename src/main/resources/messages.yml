@@ -22,5 +22,6 @@ Moderator:
 Error:
   MustBePlayer: "&4You must be a player to use this command"
   NotPermitted: "&4You aren't permitted to do this"
+  NotInChannel: "&4You cannot chat as you aren't in a channel, use \"/ch (channel name)\" to join one"
   ChannelDoesNotExist: "&4A channel of that name doesn't exist!"
   RateLimited: "&4You are sending messages to fast, Please slow down!"

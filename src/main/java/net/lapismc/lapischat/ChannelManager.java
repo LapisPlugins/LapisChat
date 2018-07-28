@@ -7,12 +7,7 @@ import java.util.List;
 
 public class ChannelManager {
 
-    private LapisChat plguin;
     private List<Channel> channels = new ArrayList<>();
-
-    ChannelManager(LapisChat plugin) {
-        this.plguin = plugin;
-    }
 
     public void addChannel(Channel channel) {
         channels.add(channel);
@@ -31,8 +26,8 @@ public class ChannelManager {
     }
 
     public Channel getChannel(String name) {
-        for (Channel channel : channels) {
-            if (channel.getName().equalsIgnoreCase(name)) {
+        for (Channel channel : getChannels()) {
+            if (channel.getName().equalsIgnoreCase(name) || channel.getShortName().equalsIgnoreCase(name)) {
                 return channel;
             }
         }

@@ -2,10 +2,13 @@ ConfigVersion: 1
 
 # Double spaces will be removed, so if a player doesn't have a prefix there wont be a big gap
 # You can use PlaceholderAPI tags here if it is installed
-DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} > {MESSAGE}"
+DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} &7>&f {MESSAGE}"
 
 # How often in milliseconds can a player send a message
 RateLimit: 1000
+
+# enable this if your console doesn't support color codes but still shows them
+StripColorFromConsole: true
 
 Channels:
   Global:

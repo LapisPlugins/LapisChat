@@ -2,7 +2,6 @@ package net.lapismc.lapischat;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import net.lapismc.lapischat.api.ChannelAPI;
 import net.lapismc.lapischat.channels.Global;
 import net.lapismc.lapischat.channels.Local;
 import net.lapismc.lapischat.commands.LapisChatChannel;
@@ -30,12 +29,12 @@ public final class LapisChat extends JavaPlugin {
     public void onEnable() {
         instance = this;
         config = new LapisChatConfiguration(this);
-        channelManager = new ChannelManager(this);
-        new ChannelAPI(this);
+        channelManager = new ChannelManager();
         channelManager.addChannel(new Global());
         channelManager.addChannel(new Local());
         new LapisChatListeners(this);
         registerCommands();
+        getLogger().info(getName() + " v" + getDescription().getVersion() + " has been enabled");
     }
 
     @Override

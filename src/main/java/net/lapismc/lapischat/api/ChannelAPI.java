@@ -4,6 +4,9 @@ import net.lapismc.lapischat.LapisChat;
 import net.lapismc.lapischat.framework.Channel;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.List;
+
+@SuppressWarnings("unused")
 public class ChannelAPI {
 
     public ChannelAPI(JavaPlugin plugin) {
@@ -20,6 +23,10 @@ public class ChannelAPI {
 
     public Channel getChannel(String name) {
         return LapisChat.getInstance().channelManager.getChannel(name);
+    }
+
+    public List<Channel> getChannels() {
+        return LapisChat.getInstance().channelManager.getChannels();
     }
 
 }

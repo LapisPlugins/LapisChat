@@ -13,7 +13,7 @@ import java.util.List;
 public class Local extends Channel {
 
     public Local() {
-        super("Local", LapisChat.getInstance().getConfig().getString("Channels.Local.Prefix"), new Permission("LapisChat.Local"));
+        super("Local", "l", LapisChat.getInstance().getConfig().getString("Channels.Local.Prefix"), new Permission("LapisChat.Local"));
     }
 
     @Override
@@ -32,6 +32,7 @@ public class Local extends Channel {
                     nearby.add(LapisChat.getInstance().getPlayer(e.getUniqueId()));
                 }
             }
+            nearby.add(p);
             return nearby;
         }
         return new ArrayList<>();

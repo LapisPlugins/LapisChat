@@ -46,6 +46,9 @@ public class ChatPlayer {
     }
 
     public void removeChannel(Channel channel) {
+        if (mainChannel.equals(channel)) {
+            mainChannel = null;
+        }
         channel.removePlayer(this);
         channels.remove(channel);
     }
@@ -111,6 +114,9 @@ public class ChatPlayer {
     }
 
     private boolean createFileIfNotExists(File file) {
+        if (!file.getParentFile().exists()) {
+            file.getParentFile().mkdir();
+        }
         if (!file.exists()) {
             try {
                 file.createNewFile();

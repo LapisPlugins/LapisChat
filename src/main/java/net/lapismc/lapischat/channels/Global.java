@@ -8,7 +8,7 @@ import org.bukkit.permissions.Permission;
 public class Global extends Channel {
 
     public Global() {
-        super("Global", LapisChat.getInstance().getConfig().getString("Channels.Global.Prefix"), new Permission("LapisChat.Global"));
+        super("Global", "g", LapisChat.getInstance().getConfig().getString("Channels.Global.Prefix"), new Permission("LapisChat.Global"));
     }
 
     @Override
