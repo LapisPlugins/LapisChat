@@ -40,10 +40,12 @@ public class LapisChatChannel extends LapisChatCommand {
                         p.setMainChannel(channel);
                         sendChannelMessage(sender, "Channel.Set", channel);
                     } else {
-                        sendChannelMessage(sender, "Channel.Joined", channel);
-                        sendChannelMessage(sender, "Channel.Set", channel);
                         p.addChannel(channel);
                         p.setMainChannel(channel);
+                        if (p.getChannels().contains(channel)) {
+                            sendChannelMessage(sender, "Channel.Joined", channel);
+                            sendChannelMessage(sender, "Channel.Set", channel);
+                        }
                     }
                 } else {
                     sendMessage(sender, "Error.ChannelDoesNotExist");
@@ -80,7 +82,9 @@ public class LapisChatChannel extends LapisChatCommand {
                             sendChannelMessage(sender, "Channel.AlreadyInChannel", channel);
                         } else {
                             p.addChannel(channel);
-                            sendChannelMessage(sender, "Channel.Joined", channel);
+                            if (p.getChannels().contains(channel)) {
+                                sendChannelMessage(sender, "Channel.Joined", channel);
+                            }
                         }
                     }
                 } else {

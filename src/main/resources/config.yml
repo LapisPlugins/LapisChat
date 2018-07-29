@@ -8,6 +8,7 @@ Update:
 
 # Double spaces will be removed, so if a player doesn't have a prefix there wont be a big gap
 # You can use PlaceholderAPI tags here if it is installed
+# You can add the {FACTION} tag if you have the faction add-on installed
 DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} &7>&f {MESSAGE}"
 
 # How often in milliseconds can a player send a message

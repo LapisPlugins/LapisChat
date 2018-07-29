@@ -1,2 +1,6 @@
 1.0.0:
 - "Initial release"
+1.0.1:
+- "Fixed loading of non existent channels for CustomChannels add-on"
+- "Adjusted channel class to allow passwords in CustomChannels"
+- "Modified order of operations in the /ch command to allow passwords to work wihout extra messages"

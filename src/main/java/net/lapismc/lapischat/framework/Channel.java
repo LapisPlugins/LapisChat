@@ -11,15 +11,16 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("WeakerAccess")
 public abstract class Channel {
 
+    protected List<ChatPlayer> players = new ArrayList<>();
     private String name;
     private String prefix;
     private String format;
     private Chat vaultChat;
     private Permission perm;
     private String shortName;
-    private List<ChatPlayer> players = new ArrayList<>();
 
     protected Channel(String name, String shortName, String prefix, Permission perm) {
         this.name = name;
@@ -52,7 +53,13 @@ public abstract class Channel {
         return format;
     }
 
-    void addPlayer(ChatPlayer p) {
+    //This is here to it can be overridden for things like password checks
+    protected void addPlayer(ChatPlayer p) {
+        forceAddPlayer(p);
+    }
+
+    //where as this one is for adding a player because of permissions or config
+    protected void forceAddPlayer(ChatPlayer p) {
         players.add(p);
     }
 

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+@SuppressWarnings("WeakerAccess")
 public class ChatPlayer {
 
     private UUID uuid;
@@ -41,12 +42,17 @@ public class ChatPlayer {
     }
 
     public void addChannel(Channel channel) {
+        channels.add(channel);
         channel.addPlayer(this);
+    }
+
+    public void forceAddChannel(Channel channel) {
+        channel.forceAddPlayer(this);
         channels.add(channel);
     }
 
     public void removeChannel(Channel channel) {
-        if (mainChannel.equals(channel)) {
+        if (mainChannel != null && mainChannel.equals(channel)) {
             mainChannel = null;
         }
         channel.removePlayer(this);
@@ -74,7 +80,7 @@ public class ChatPlayer {
         return getChannels().contains(channel);
     }
 
-    void sendMessage(String msg) {
+    public void sendMessage(String msg) {
         OfflinePlayer op = Bukkit.getOfflinePlayer(uuid);
         if (op.isOnline()) {
             op.getPlayer().sendMessage(msg);
@@ -104,11 +110,16 @@ public class ChatPlayer {
                 "Players" + File.separator + uuid.toString() + ".yml");
         if (createFileIfNotExists(file)) return;
         YamlConfiguration yaml = YamlConfiguration.loadConfiguration(file);
-        if (yaml.contains("Channel"))
-            setMainChannel(LapisChat.getInstance().channelManager.getChannel(yaml.getString("Channel")));
+        if (yaml.contains("Channel")) {
+            Channel channel = LapisChat.getInstance().channelManager.getChannel(yaml.getString("Channel"));
+            if (channel != null)
+                setMainChannel(channel);
+        }
         if (yaml.contains("Channels") && !yaml.getStringList("Channels").isEmpty()) {
             for (String name : yaml.getStringList("Channels")) {
-                addChannel(LapisChat.getInstance().channelManager.getChannel(name));
+                Channel channel = LapisChat.getInstance().channelManager.getChannel(name);
+                if (channel != null)
+                    forceAddChannel(channel);
             }
         }
     }

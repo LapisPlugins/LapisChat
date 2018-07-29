@@ -1,6 +1,7 @@
 package net.lapismc.lapischat;
 
 import org.bukkit.Bukkit;
+import org.bukkit.scheduler.BukkitTask;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,6 +13,7 @@ import static java.nio.file.StandardWatchEventKinds.ENTRY_MODIFY;
 class LapisChatFileWatcher {
 
     private final LapisChat plugin;
+    private BukkitTask task;
 
     LapisChatFileWatcher(LapisChat plugin) {
         this.plugin = plugin;
@@ -19,13 +21,19 @@ class LapisChatFileWatcher {
     }
 
     private void start() {
-        Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+        task = Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
             try {
                 watcher();
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void stop() {
+        if (task != null && !task.isCancelled()) {
+            task.cancel();
+        }
     }
 
     private void watcher() throws IOException, InterruptedException {
@@ -35,6 +43,9 @@ class LapisChatFileWatcher {
         plugin.getLogger().info("LapisChat file watcher started!");
         WatchKey key = watcher.take();
         while (key != null) {
+            if (!plugin.isEnabled()) {
+                stop();
+            }
             for (WatchEvent<?> event : key.pollEvents()) {
                 WatchEvent.Kind<?> kind = event.kind();
                 @SuppressWarnings("unchecked")

@@ -34,18 +34,21 @@ class LapisChatListeners implements Listener {
         if (!file.exists()) {
             for (Channel channel : plugin.channelManager.getChannels()) {
                 if (e.getPlayer().hasPermission("LapisChat.AutoJoin." + channel.getName())) {
-                    plugin.getPlayer(e.getPlayer().getUniqueId()).addChannel(channel);
+                    plugin.getPlayer(e.getPlayer().getUniqueId()).forceAddChannel(channel);
                 }
             }
         }
         for (Channel channel : plugin.channelManager.getChannels()) {
             if (e.getPlayer().hasPermission("LapisChat.SetMain." + channel.getName())) {
+                if (!plugin.getPlayer(e.getPlayer().getUniqueId()).getChannels().contains(channel)) {
+                    plugin.getPlayer(e.getPlayer().getUniqueId()).forceAddChannel(channel);
+                }
                 plugin.getPlayer(e.getPlayer().getUniqueId()).setMainChannel(channel);
             }
         }
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         e.setCancelled(true);
         ChatPlayer player = plugin.getPlayer(e.getPlayer().getUniqueId());
