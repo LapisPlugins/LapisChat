@@ -1,7 +1,5 @@
 package net.lapismc.lapischat;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
 import net.lapismc.lapischat.channels.Global;
 import net.lapismc.lapischat.channels.Local;
 import net.lapismc.lapischat.commands.LapisChatChannel;
@@ -12,8 +10,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.HashMap;
 import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 public final class LapisChat extends JavaPlugin {
 
@@ -22,7 +20,7 @@ public final class LapisChat extends JavaPlugin {
     public LapisChatConfiguration config;
     String primaryColor = ChatColor.WHITE.toString();
     String secondaryColor = ChatColor.AQUA.toString();
-    private Cache<UUID, ChatPlayer> players = CacheBuilder.newBuilder().expireAfterAccess(5, TimeUnit.MINUTES).build();
+    private HashMap<UUID, ChatPlayer> players = new HashMap<>();
 
     public static LapisChat getInstance() {
         return instance;
@@ -33,6 +31,7 @@ public final class LapisChat extends JavaPlugin {
         instance = this;
         config = new LapisChatConfiguration(this);
         Bukkit.getScheduler().runTaskAsynchronously(this, this::updateCheck);
+        Bukkit.getScheduler().runTaskLaterAsynchronously(this, this::playerCleanup, 20 * 60 * 5);
         channelManager = new ChannelManager();
         channelManager.addChannel(new Global());
         channelManager.addChannel(new Local());
@@ -45,9 +44,16 @@ public final class LapisChat extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        for (ChatPlayer player : players.asMap().values()) {
+        for (ChatPlayer player : players.values()) {
             player.savePlayerData();
         }
+    }
+
+    private void playerCleanup() {
+        for (ChatPlayer player : players.values()) {
+            player.savePlayerData();
+        }
+        players.clear();
     }
 
     private void updateCheck() {
@@ -63,10 +69,10 @@ public final class LapisChat extends JavaPlugin {
     }
 
     public ChatPlayer getPlayer(UUID uuid) {
-        if (players.getIfPresent(uuid) == null) {
+        if (players.get(uuid) == null) {
             players.put(uuid, new ChatPlayer(uuid));
         }
-        return players.getIfPresent(uuid);
+        return players.get(uuid);
     }
 
     private void registerCommands() {
