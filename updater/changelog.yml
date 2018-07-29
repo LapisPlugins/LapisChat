@@ -5,3 +5,5 @@
 - "Adjusted channel class to allow passwords in CustomChannels"
 - "Modified order of operations in the /ch command to allow passwords to work without extra messages"
 - "Fixed player data not being saved"
+1.0.2:
+- "Added /lapischat command for plugin info, help and checking what channels a player is in"

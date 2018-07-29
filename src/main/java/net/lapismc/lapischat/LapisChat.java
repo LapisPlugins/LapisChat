@@ -3,6 +3,7 @@ package net.lapismc.lapischat;
 import net.lapismc.lapischat.channels.Global;
 import net.lapismc.lapischat.channels.Local;
 import net.lapismc.lapischat.commands.LapisChatChannel;
+import net.lapismc.lapischat.commands.LapisChatCommand;
 import net.lapismc.lapischat.framework.ChatPlayer;
 import net.lapismc.lapischat.utils.LapisUpdater;
 import net.lapismc.lapischat.utils.Metrics;
@@ -18,8 +19,8 @@ public final class LapisChat extends JavaPlugin {
     private static LapisChat instance;
     public ChannelManager channelManager;
     public LapisChatConfiguration config;
-    String primaryColor = ChatColor.WHITE.toString();
-    String secondaryColor = ChatColor.AQUA.toString();
+    public String primaryColor = ChatColor.WHITE.toString();
+    public String secondaryColor = ChatColor.AQUA.toString();
     private HashMap<UUID, ChatPlayer> players = new HashMap<>();
 
     public static LapisChat getInstance() {
@@ -77,5 +78,6 @@ public final class LapisChat extends JavaPlugin {
 
     private void registerCommands() {
         new LapisChatChannel(this);
+        new LapisChatCommand(this);
     }
 }

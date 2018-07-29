@@ -1,4 +1,4 @@
-ConfigVersion: 1
+ConfigVersion: 2
 
 PrimaryColor: "&f"
 SecondaryColor: "&b"
@@ -18,9 +18,21 @@ Moderator:
   Banned: "&s%PLAYER%&p has been banned from &s%CHANNEL%"
   Kicked: "&s%PLAYER%&p has been kicked from &s%CHANNEL%"
   Unbanned: "&s%PLAYER%&p has been unbanned from &s%CHANNEL%"
+  ChannelList: "&pBelow is a list of the channels the player is in:"
+  EmptyList: "&pThat player is not in any channels"
+
+Help:
+  Channel: "&s/channel (name)&p to switch to a channel\n
+  &s/channel join (name)&p to listen to a channel\n
+  &s/channel leave (name)&p to leave a channel\n
+  &s/channel (name) kick/ban/unban (player)&p to moderate a channel\n"
+  LapisChat: "&s/lapischat&p for plugin info\n
+  &s/lapischat update&p to force a plugin update\n
+  &s/lapischat player (name)&p to see the channels a player is in\n"
 
 Error:
   MustBePlayer: "&4You must be a player to use this command"
+  PlayerNotFound: "&4No player with that name was found!"
   NotPermitted: "&4You aren't permitted to do this"
   NotInChannel: "&4You cannot chat as you aren't in a channel, use \"/ch (channel name)\" to join one"
   ChannelDoesNotExist: "&4A channel of that name doesn't exist!"

@@ -40,7 +40,7 @@ import java.io.*;
 public class LapisChatConfiguration {
 
     private final int configVersion = 1;
-    private final int messagesVersion = 1;
+    private final int messagesVersion = 2;
     private final LapisChat plugin;
     private File messagesFile;
     private YamlConfiguration messages;
