@@ -1,6 +1,7 @@
 name: LapisChat
 version: ${project.version}
 main: net.lapismc.lapischat.LapisChat
+api-version: 1.13
 authors: [Dart2112]
 depend: [Vault]
 softdepend: [PlaceholderAPI]
