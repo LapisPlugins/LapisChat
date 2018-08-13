@@ -2,8 +2,6 @@ LapisChat
 
 Cross Server support?
 
-Passwords
-
 LapisChat.(Channel)
 LapisChat.Moderate.(Channel)
 LapisChat.AutoJoin.(Channel) only on first connect

@@ -20,37 +20,71 @@ public class ChatPlayer {
     private List<Channel> channels = new ArrayList<>();
     private List<Channel> bannedChannels = new ArrayList<>();
 
+    /**
+     * @param uuid The Unique ID of the player you wish to access
+     */
     public ChatPlayer(UUID uuid) {
         this.uuid = uuid;
         loadPlayerData();
     }
 
+    /**
+     * @return Returns the {@link OfflinePlayer} object for this player
+     */
     public OfflinePlayer getOfflinePlayer() {
         return Bukkit.getOfflinePlayer(uuid);
     }
 
+    /**
+     * @return Returns the {@link Player} object for this player
+     */
     public Player getPlayer() {
         return Bukkit.getPlayer(uuid);
     }
 
+    /**
+     * @return Returns the {@link Channel} that the player is currently sending messages to
+     */
     public Channel getMainChannel() {
         return mainChannel;
     }
 
+    /**
+     * Sets the channel the player will send messages to
+     *
+     * @param mainChannel The channel you wish to have the player use
+     */
     public void setMainChannel(Channel mainChannel) {
         this.mainChannel = mainChannel;
     }
 
+    /**
+     * Adds a player to a channel, this means the player will receive messages from this channel
+     * This may involve entering a password, if you wish to add a player regardless of protections use {@link #forceAddChannel(Channel)}
+     *
+     * @param channel The channel you wish to add
+     */
     public void addChannel(Channel channel) {
         channels.add(channel);
         channel.addPlayer(this);
     }
 
+    /**
+     * Forces a player into a channel, this overrides things like channel passwords
+     *
+     * @param channel The channel you wish to add
+     */
     public void forceAddChannel(Channel channel) {
         channel.forceAddPlayer(this);
         channels.add(channel);
     }
 
+    /**
+     * Removing a player form a channel means they will no longer receive any messages sent in that channel
+     * MainChannel will be set to null if the channel you are removing is currently the main channel
+     *
+     * @param channel The channel you want the player to be removed from
+     */
     public void removeChannel(Channel channel) {
         if (mainChannel != null && mainChannel.equals(channel)) {
             mainChannel = null;
@@ -59,27 +93,55 @@ public class ChatPlayer {
         channels.remove(channel);
     }
 
+    /**
+     * This will remove the player from the channel and stop them from joining until they are unbanned
+     *
+     * @param channel The channel you wish to ban this player from joining
+     */
     public void banFromChannel(Channel channel) {
         removeChannel(channel);
         bannedChannels.add(channel);
     }
 
+    /**
+     * @param channel The channel you wish to check
+     * @return Returns true if the player is currently banned from joining this channel
+     */
     public boolean isBannedFromChannel(Channel channel) {
         return bannedChannels.contains(channel);
     }
 
+    /**
+     * Un-bans a player from the channel, this will allow them to join the channel again
+     *
+     * @param channel The channel you wish to unban the player from
+     */
     public void unBanFromChannel(Channel channel) {
         bannedChannels.remove(channel);
     }
 
+    /**
+     * @return Returns a list of {@link Channel}'s that the player is in
+     */
     public List<Channel> getChannels() {
         return channels;
     }
 
+    /**
+     * @param channel The channel you wish to check
+     * @return Returns true if the player is in the channel provided
+     */
     public boolean isInChannel(Channel channel) {
         return getChannels().contains(channel);
     }
 
+    /**
+     * Send the string as a message to the player
+     * This is used by channels when they are sending messages
+     * This method will not format the message, it just sends it to the player
+     *
+     * @param msg The string to be sent to the player
+     */
     public void sendMessage(String msg) {
         OfflinePlayer op = Bukkit.getOfflinePlayer(uuid);
         if (op.isOnline()) {
@@ -87,6 +149,10 @@ public class ChatPlayer {
         }
     }
 
+    /**
+     * Saves the players channel data to their configuration file
+     * This includes the channels they are in, the channel they are chatting in and any banned channels
+     */
     public void savePlayerData() {
         File file = new File(LapisChat.getInstance().getDataFolder() + File.separator +
                 "Players" + File.separator + uuid.toString() + ".yml");

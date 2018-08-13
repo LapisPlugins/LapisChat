@@ -33,13 +33,13 @@ class LapisChatListeners implements Listener {
                 + File.separator + e.getPlayer().getUniqueId() + ".yml");
         if (!file.exists()) {
             for (Channel channel : plugin.channelManager.getChannels()) {
-                if (e.getPlayer().hasPermission("LapisChat.AutoJoin." + channel.getName())) {
+                if (e.getPlayer().hasPermission(channel.getAutoJoinPermission())) {
                     plugin.getPlayer(e.getPlayer().getUniqueId()).forceAddChannel(channel);
                 }
             }
         }
         for (Channel channel : plugin.channelManager.getChannels()) {
-            if (e.getPlayer().hasPermission("LapisChat.SetMain." + channel.getName())) {
+            if (e.getPlayer().hasPermission(channel.getSetMainPermission())) {
                 if (!plugin.getPlayer(e.getPlayer().getUniqueId()).getChannels().contains(channel)) {
                     plugin.getPlayer(e.getPlayer().getUniqueId()).forceAddChannel(channel);
                 }

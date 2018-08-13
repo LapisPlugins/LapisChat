@@ -6,6 +6,7 @@ import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.permissions.Permission;
+import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 import java.util.ArrayList;
@@ -21,31 +22,51 @@ public abstract class Channel {
     private Chat vaultChat;
     private Permission perm;
     private String shortName;
+    private Permission setMainPerm;
+    private Permission autoJoinPerm;
 
+    /**
+     * Use this constructor if you wish to use the default format
+     *
+     * @param name      The name of the channel
+     * @param shortName The name that can be used to join the channel
+     * @param prefix    The prefix shown in chat
+     * @param perm      The permission required to join the channel
+     */
     protected Channel(String name, String shortName, String prefix, Permission perm) {
         this.name = name;
         this.shortName = shortName;
         this.prefix = prefix;
         this.format = getDefaultFormat();
         this.perm = perm;
+        this.perm.setDefault(PermissionDefault.FALSE);
+        this.autoJoinPerm = new Permission("LapisChat.AutoJoin." + name, PermissionDefault.FALSE);
+        this.setMainPerm = new Permission("LapisChat.SetMain." + name, PermissionDefault.FALSE);
         RegisteredServiceProvider<Chat> rsp = Bukkit.getServer().getServicesManager().getRegistration(Chat.class);
         vaultChat = rsp.getProvider();
     }
 
+    /**
+     * Use this constructor if you wish to set your own format for this channel
+     *
+     * @param name      The name of the channel
+     * @param shortName The name that can be used to join the channel
+     * @param prefix    The prefix shown in chat
+     * @param perm      The permission required to join the channel
+     * @param format    The format that you wish to use for this channel
+     */
     public Channel(String name, String shortName, String prefix, Permission perm, String format) {
-        this.name = name;
-        this.shortName = shortName;
-        this.prefix = prefix;
+        this(name, shortName, prefix, perm);
         this.format = format;
-        this.perm = perm;
-        RegisteredServiceProvider<Chat> rsp = Bukkit.getServer().getServicesManager().getRegistration(Chat.class);
-        vaultChat = rsp.getProvider();
     }
 
     private String getDefaultFormat() {
         return LapisChat.getInstance().getConfig().getString("DefaultFormat");
     }
 
+    /**
+     * @return Returns the current format for this channel
+     */
     public String getFormat() {
         if (format == null) {
             return getDefaultFormat();
@@ -53,40 +74,98 @@ public abstract class Channel {
         return format;
     }
 
-    //This is here to it can be overridden for things like password checks
+    /**
+     * This method wil call {@link #forceAddPlayer(ChatPlayer)}, it is primarily here to be overridden for things like
+     * password checks
+     *
+     * @param p The player to add to this channel
+     */
     protected void addPlayer(ChatPlayer p) {
         forceAddPlayer(p);
     }
 
-    //where as this one is for adding a player because of permissions or config
+    /**
+     * This should only be called if you want to add the player based on a permission or other system rather then a
+     * player joining a channel of their own accord
+     *
+     * @param p The player to add to this channel
+     */
     protected void forceAddPlayer(ChatPlayer p) {
         players.add(p);
     }
 
+    /**
+     * Removes the player from the channels player list meaning this player wont receive messages from this channel
+     * NOTE: this doesn't stop the player sending messages to this channel, it only stops them seeing messages from it
+     *
+     * @param p The player to be removed from this channel
+     */
     void removePlayer(ChatPlayer p) {
         players.remove(p);
     }
 
+    /**
+     * Returns the players that will receive a message if it was sent by p
+     * By default this returns the list of players in the channel
+     * this is overridden by other channels to specify distance or faction association
+     *
+     * @param p the player sending a message to the channel
+     * @return Returns a list of ChatPlayers that will receive the message
+     */
     protected List<ChatPlayer> getRecipients(ChatPlayer p) {
         return players;
     }
 
+    /**
+     * @return Returns the full name of the channel
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @return Returns the short name of the channel
+     */
     public String getShortName() {
         return shortName;
     }
 
+    /**
+     * @return Returns the prefix of the channel
+     */
     private String getPrefix() {
         return prefix;
     }
 
+    /**
+     * @return Returns the permission required to join this channel
+     */
     public Permission getPermission() {
         return perm;
     }
 
+    /**
+     * @return Returns the permission required to be added to this channel on first join
+     */
+    public Permission getAutoJoinPermission() {
+        return autoJoinPerm;
+    }
+
+    /**
+     * @return Returns the permission required to have this channel set as your main channel on every join
+     */
+    public Permission getSetMainPermission() {
+        return setMainPerm;
+    }
+
+    /**
+     * Sends a message to the recipients of the channel
+     * NOTE: The format must already be filled in, use {@link #format(ChatPlayer, String, String)} to apply the format
+     *
+     * @param from   The {@link ChatPlayer} that has sent the message
+     * @param msg    The message being sent
+     * @param format The finalised format
+     */
     public void sendMessage(ChatPlayer from, String msg, String format) {
         msg = format(from, msg, format);
         for (ChatPlayer p : getRecipients(from)) {
@@ -98,6 +177,12 @@ public abstract class Channel {
         Bukkit.getLogger().info(msg);
     }
 
+    /**
+     * @param from   The {@link ChatPlayer} sending the message
+     * @param msg    The message being sent
+     * @param format The format being used
+     * @return Returns the formatted message to be sent to recipients
+     */
     protected String applyDefaultFormat(ChatPlayer from, String msg, String format) {
         String finalMessage = format;
         String playerPrefix = vaultChat.getPlayerPrefix(from.getPlayer());
@@ -116,5 +201,14 @@ public abstract class Channel {
         return finalMessage;
     }
 
+    /**
+     * This must be implemented by all channels, by default it should return {@link #applyDefaultFormat(ChatPlayer, String, String)}
+     * This is can be used to apply extra per channel formatting tags
+     *
+     * @param from   The {@link ChatPlayer} sending the message
+     * @param msg    The message being sent
+     * @param format The raw format to be applied
+     * @return Returns the formatted message for this channel
+     */
     protected abstract String format(ChatPlayer from, String msg, String format);
 }
