@@ -1,4 +1,4 @@
-ConfigVersion: 1
+ConfigVersion: 2
 
 Update:
   # Notify console of updates?
@@ -10,6 +10,17 @@ Update:
 # You can use PlaceholderAPI tags here if it is installed
 # You can add the {FACTION} tag if you have the faction add-on installed
 DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} &7>&f {MESSAGE}"
+
+# This works the same way as DefaultFormat except you need to define if it is for the sender or receiver
+# e.g. {SENDER_FACTION} or {RECEIVER_SUFFIX}
+# NOTE: PlaceHolderAPI values will be set based on the sender
+PrivateMessageFormat: "{SENDER_PREFIX} {SENDER} &7>&f {RECEIVER_PREFIX} {RECEIVER}: {MESSAGE}"
+
+# These commands can be used as aliases for /LapisChatPrivateMessage
+PrivateMessageCommands:
+- "msg"
+- "tell"
+- "pm"
 
 # How often in milliseconds can a player send a message
 RateLimit: 1000

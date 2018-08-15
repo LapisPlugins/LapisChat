@@ -5,6 +5,7 @@ import net.lapismc.lapischat.channels.Local;
 import net.lapismc.lapischat.commands.LapisChatChannel;
 import net.lapismc.lapischat.commands.LapisChatCommand;
 import net.lapismc.lapischat.commands.LapisChatPrivateMessage;
+import net.lapismc.lapischat.commands.LapisChatReply;
 import net.lapismc.lapischat.framework.ChatPlayer;
 import net.lapismc.lapischat.utils.LapisUpdater;
 import net.lapismc.lapischat.utils.Metrics;
@@ -84,5 +85,6 @@ public final class LapisChat extends JavaPlugin {
         new LapisChatChannel(this);
         new LapisChatCommand(this);
         new LapisChatPrivateMessage(this);
+        new LapisChatReply(this);
     }
 }

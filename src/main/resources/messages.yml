@@ -1,4 +1,4 @@
-ConfigVersion: 2
+ConfigVersion: 3
 
 PrimaryColor: "&f"
 SecondaryColor: "&b"
@@ -21,6 +21,10 @@ Moderator:
   ChannelList: "&pBelow is a list of the channels the player is in:"
   EmptyList: "&pThat player is not in any channels"
 
+PrivateMessage:
+  PlayerNotFound: "&sA user with that name was not found, check the username and make sure they are online"
+  NoConversation: "&pYou don't have anyone to reply to, start a conversation first"
+
 Help:
   Channel: "&s/channel (name)&p to switch to a channel\n
   &s/channel join (name)&p to listen to a channel\n
@@ -29,6 +33,8 @@ Help:
   LapisChat: "&s/lapischat&p for plugin info\n
   &s/lapischat update&p to force a plugin update\n
   &s/lapischat player (name)&p to see the channels a player is in\n"
+  PrivateMessage: "&s/LapisChatPrivateMessage (name) (message)&p Send a message directly to a user"
+  Reply: "&s/reply (message)&p Send a message to the last player who you talked to"
 
 Error:
   MustBePlayer: "&4You must be a player to use this command"
