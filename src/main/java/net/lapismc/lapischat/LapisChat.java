@@ -19,10 +19,12 @@ public final class LapisChat extends JavaPlugin {
 
     private static LapisChat instance;
     public ChannelManager channelManager;
+    public MessageManager messageManager;
     public LapisChatConfiguration config;
     public String primaryColor = ChatColor.WHITE.toString();
     public String secondaryColor = ChatColor.AQUA.toString();
     private HashMap<UUID, ChatPlayer> players = new HashMap<>();
+    public UUID consoleUUID = UUID.nameUUIDFromBytes("Console".getBytes());
 
     public static LapisChat getInstance() {
         return instance;
@@ -37,6 +39,7 @@ public final class LapisChat extends JavaPlugin {
         channelManager = new ChannelManager();
         channelManager.addChannel(new Global());
         channelManager.addChannel(new Local());
+        messageManager = new MessageManager(this);
         new LapisChatListeners(this);
         registerCommands();
         new LapisChatFileWatcher(this);
