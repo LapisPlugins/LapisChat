@@ -12,3 +12,8 @@
 - "Updated for 1.13, It is still backwards compatible"
 - "Added JavaDocs for Channel, ChatPlayer, ChannelAPI and LapisChatEvent"
 - "Minor code cleanup in channels"
+1.0.4:
+- "Added private messaging with the ability to override your current solution"
+- "Added /r or /reply to reply to the last person who communicated with you"
+- "Moved to LapisCore for the core of the plugin, this means LapisChat will get bug fixes when my other plugins do"
+- "Minor bug fixes"

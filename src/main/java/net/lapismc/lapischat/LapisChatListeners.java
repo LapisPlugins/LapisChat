@@ -48,7 +48,7 @@ class LapisChatListeners implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onPlayerChat(AsyncPlayerChatEvent e) {
         e.setCancelled(true);
         ChatPlayer player = plugin.getPlayer(e.getPlayer().getUniqueId());

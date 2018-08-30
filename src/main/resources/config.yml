@@ -14,7 +14,7 @@ DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} &7>&f {MESSAGE}"
 # This works the same way as DefaultFormat except you need to define if it is for the sender or receiver
 # e.g. {SENDER_FACTION} or {RECEIVER_SUFFIX}
 # NOTE: PlaceHolderAPI values will be set based on the sender
-PrivateMessageFormat: "{SENDER_PREFIX} {SENDER} &7>&f {RECEIVER_PREFIX} {RECEIVER}: {MESSAGE}"
+PrivateMessageFormat: "{SENDER_PREFIX}{SENDER} &7>&f {RECEIVER_PREFIX}{RECEIVER}: {MESSAGE}"
 
 # These commands can be used as aliases for /LapisChatPrivateMessage
 PrivateMessageCommands:
@@ -26,7 +26,7 @@ PrivateMessageCommands:
 RateLimit: 1000
 
 # enable this if your console doesn't support color codes but still shows them
-StripColorFromConsole: true
+StripColorFromConsole: false
 
 Channels:
   Global:

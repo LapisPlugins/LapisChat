@@ -9,19 +9,20 @@ import net.lapismc.lapischat.commands.LapisChatReply;
 import net.lapismc.lapischat.framework.ChatPlayer;
 import net.lapismc.lapischat.utils.LapisUpdater;
 import net.lapismc.lapischat.utils.Metrics;
+import net.lapismc.lapiscore.LapisCoreConfiguration;
+import net.lapismc.lapiscore.LapisCoreFileWatcher;
+import net.lapismc.lapiscore.LapisCorePlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
 import java.util.UUID;
 
-public final class LapisChat extends JavaPlugin {
+public final class LapisChat extends LapisCorePlugin {
 
     private static LapisChat instance;
     public ChannelManager channelManager;
     public MessageManager messageManager;
-    public LapisChatConfiguration config;
     public String primaryColor = ChatColor.WHITE.toString();
     public String secondaryColor = ChatColor.AQUA.toString();
     private HashMap<UUID, ChatPlayer> players = new HashMap<>();
@@ -34,7 +35,7 @@ public final class LapisChat extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        config = new LapisChatConfiguration(this);
+        registerConfiguration(new LapisCoreConfiguration(this, 2, 3));
         Bukkit.getScheduler().runTaskAsynchronously(this, this::updateCheck);
         Bukkit.getScheduler().runTaskLaterAsynchronously(this, this::playerCleanup, 20 * 60 * 5);
         channelManager = new ChannelManager();
@@ -43,7 +44,7 @@ public final class LapisChat extends JavaPlugin {
         messageManager = new MessageManager(this);
         new LapisChatListeners(this);
         registerCommands();
-        new LapisChatFileWatcher(this);
+        new LapisCoreFileWatcher(this);
         new Metrics(this);
         getLogger().info(getName() + " v" + getDescription().getVersion() + " has been enabled");
     }

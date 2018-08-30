@@ -19,33 +19,19 @@ package net.lapismc.lapischat.utils;
 import net.lapismc.lapischat.LapisChat;
 import net.lapismc.lapischat.framework.Channel;
 import net.lapismc.lapischat.framework.ChatPlayer;
-import org.bukkit.Bukkit;
-import org.bukkit.command.CommandMap;
+import net.lapismc.lapiscore.LapisCoreCommand;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.defaults.BukkitCommand;
 import org.bukkit.entity.Player;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-public abstract class LapisChatCommand extends BukkitCommand {
+public abstract class LapisChatCommand extends LapisCoreCommand {
 
     protected LapisChat plugin;
 
     protected LapisChatCommand(LapisChat plugin, String name, String desc, ArrayList<String> aliases) {
-        super(name);
+        super(plugin, name, desc, aliases, true);
         this.plugin = plugin;
-        setDescription(desc);
-        setAliases(aliases);
-        registerCommand(name);
-    }
-
-    protected boolean ensurePlayer(CommandSender sender) {
-        if (!(sender instanceof Player)) {
-            sendMessage(sender, "Error.MustBePlayer");
-            return true;
-        }
-        return false;
     }
 
     protected ChatPlayer getChatPlayer(CommandSender sender) {
@@ -53,10 +39,6 @@ public abstract class LapisChatCommand extends BukkitCommand {
             return null;
         }
         return plugin.getPlayer(((Player) sender).getUniqueId());
-    }
-
-    protected void sendMessage(CommandSender sender, String key) {
-        sender.sendMessage(plugin.config.getMessage(key));
     }
 
     protected void sendChannelMessage(CommandSender sender, String key, Channel channel) {
@@ -75,24 +57,5 @@ public abstract class LapisChatCommand extends BukkitCommand {
         Player p = (Player) sender;
         return !p.hasPermission(permission);
     }
-
-    private void registerCommand(String name) {
-        try {
-            final Field serverCommandMap = Bukkit.getServer().getClass().getDeclaredField("commandMap");
-            serverCommandMap.setAccessible(true);
-            CommandMap commandMap = (CommandMap) serverCommandMap.get(Bukkit.getServer());
-            commandMap.register(name, this);
-        } catch (IllegalAccessException | NoSuchFieldException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public boolean execute(CommandSender sender, String commandLabel, String[] args) {
-        onCommand(sender, args);
-        return true;
-    }
-
-    protected abstract void onCommand(CommandSender sender, String[] args);
 
 }

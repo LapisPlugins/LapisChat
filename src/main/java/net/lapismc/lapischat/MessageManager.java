@@ -37,7 +37,7 @@ public class MessageManager {
         if (!conversations.containsKey(sender)) {
             return false;
         }
-        if (!Bukkit.getOfflinePlayer(conversations.get(sender)).isOnline()) {
+        if (!conversations.get(sender).equals(plugin.consoleUUID) && !Bukkit.getOfflinePlayer(conversations.get(sender)).isOnline()) {
             conversations.remove(sender);
             return false;
         }
@@ -47,6 +47,7 @@ public class MessageManager {
 
     private void sendMessageToUUID(UUID receiver, String msg) {
         if (receiver.equals(plugin.consoleUUID)) {
+            msg = plugin.getConfig().getBoolean("StripColorFromConsole") ? ChatColor.stripColor(msg) : msg;
             Bukkit.getLogger().info(msg);
         } else {
             Bukkit.getPlayer(receiver).sendMessage(msg);

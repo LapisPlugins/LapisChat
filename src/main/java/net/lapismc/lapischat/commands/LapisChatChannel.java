@@ -24,7 +24,7 @@ public class LapisChatChannel extends LapisChatCommand {
             //ch (name) adds to if not already in and sets as main
             if (args.length == 1) {
                 String channelName = args[0];
-                if (ensurePlayer(sender)) return;
+                if (isNotPlayer(sender, "Error.MustBePlayer")) return;
                 ChatPlayer p = getChatPlayer(sender);
                 if (plugin.channelManager.doesChannelExist(channelName)) {
                     Channel channel = plugin.channelManager.getChannel(channelName);
@@ -51,7 +51,7 @@ public class LapisChatChannel extends LapisChatCommand {
                     sendMessage(sender, "Error.ChannelDoesNotExist");
                 }
             } else if (args.length == 2) {
-                if (ensurePlayer(sender)) return;
+                if (isNotPlayer(sender, "Error.MustBePlayer")) return;
                 ChatPlayer p = getChatPlayer(sender);
                 //ch leave (name) removes them from the channel
                 if (args[0].equalsIgnoreCase("leave")) {
