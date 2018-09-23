@@ -1,22 +1,22 @@
-ConfigVersion: 2
+ConfigVersion: 3
 
 Update:
-  # Notify console of updates?
+  #Notify console of updates?
   Notify: true
-  # Automatically download and install updates
+  #Automatically download and install updates
   Download: false
 
-# Double spaces will be removed, so if a player doesn't have a prefix there wont be a big gap
-# You can use PlaceholderAPI tags here if it is installed
-# You can add the {FACTION} tag if you have the faction add-on installed
+#Double spaces will be removed, so if a player doesn't have a prefix there wont be a big gap
+#You can use PlaceholderAPI tags here if it is installed
+#You can add the {FACTION} tag if you have the faction add-on installed
 DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} &7>&f {MESSAGE}"
 
-# This works the same way as DefaultFormat except you need to define if it is for the sender or receiver
-# e.g. {SENDER_FACTION} or {RECEIVER_SUFFIX}
-# NOTE: PlaceHolderAPI values will be set based on the sender
+#This works the same way as DefaultFormat except you need to define if it is for the sender or receiver
+#e.g. {SENDER_FACTION} or {RECEIVER_SUFFIX}
+#NOTE: PlaceHolderAPI values will be set based on the sender
 PrivateMessageFormat: "{SENDER_PREFIX}{SENDER} &7>&f {RECEIVER_PREFIX}{RECEIVER}: {MESSAGE}"
 
-# These commands can be used as aliases for /LapisChatPrivateMessage
+#These commands can be used as aliases for /LapisChatPrivateMessage
 PrivateMessageCommands:
 - "msg"
 - "tell"
@@ -25,7 +25,12 @@ PrivateMessageCommands:
 # How often in milliseconds can a player send a message
 RateLimit: 1000
 
-# enable this if your console doesn't support color codes but still shows them
+#Chanels to log on DiscordSRV
+#Any chanels on this list will be sent to DiscordSRV, You must use the pull channel name
+ChannelsForDiscord:
+- "Global"
+
+#Enable this if your console doesn't support color codes but still shows them, this will also apply to discord if you have DiscordSRV installed
 StripColorFromConsole: false
 
 Channels:
@@ -33,5 +38,5 @@ Channels:
     Prefix: "[G]"
   Local:
     Prefix: "[L]"
-    # Distance in blocks, this is the distance messages will travel in the local channel
+    #Distance in blocks, this is the distance messages will travel in the local channel
     Range: 100

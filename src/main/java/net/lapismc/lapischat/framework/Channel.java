@@ -1,6 +1,7 @@
 package net.lapismc.lapischat.framework;
 
 import net.lapismc.lapischat.LapisChat;
+import net.lapismc.lapischat.utils.DiscordSRVHook;
 import net.lapismc.lapischat.utils.PlaceholderAPIHook;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
@@ -160,7 +161,6 @@ public abstract class Channel {
 
     /**
      * Sends a message to the recipients of the channel
-     * NOTE: The format must already be filled in, use {@link #format(ChatPlayer, String, String)} to apply the format
      *
      * @param from   The {@link ChatPlayer} that has sent the message
      * @param msg    The message being sent
@@ -170,6 +170,9 @@ public abstract class Channel {
         msg = format(from, msg, format);
         for (ChatPlayer p : getRecipients(from)) {
             p.sendMessage(msg);
+        }
+        if (Bukkit.getPluginManager().isPluginEnabled("DiscordSRV") && LapisChat.getInstance().getConfig().getStringList("ChannelsForDiscord").contains(getName())) {
+            DiscordSRVHook.logToDiscord(from.getPlayer(), msg);
         }
         if (LapisChat.getInstance().getConfig().getBoolean("StripColorFromConsole")) {
             msg = ChatColor.stripColor(msg);
