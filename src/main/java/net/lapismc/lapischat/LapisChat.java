@@ -35,7 +35,7 @@ public final class LapisChat extends LapisCorePlugin {
     @Override
     public void onEnable() {
         instance = this;
-        registerConfiguration(new LapisCoreConfiguration(this, 2, 3));
+        registerConfiguration(new LapisCoreConfiguration(this, 3, 3));
         Bukkit.getScheduler().runTaskAsynchronously(this, this::updateCheck);
         Bukkit.getScheduler().runTaskLaterAsynchronously(this, this::playerCleanup, 20 * 60 * 5);
         channelManager = new ChannelManager();
