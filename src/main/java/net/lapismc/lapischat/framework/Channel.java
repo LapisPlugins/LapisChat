@@ -1,8 +1,8 @@
 package net.lapismc.lapischat.framework;
 
 import net.lapismc.lapischat.LapisChat;
-import net.lapismc.lapischat.utils.DiscordSRVHook;
-import net.lapismc.lapischat.utils.PlaceholderAPIHook;
+import net.lapismc.lapischat.hooks.DiscordSRVHook;
+import net.lapismc.lapischat.hooks.PlaceholderAPIHook;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

@@ -1,7 +1,7 @@
 package net.lapismc.lapischat;
 
 import net.lapismc.lapischat.events.LapisMessageEvent;
-import net.lapismc.lapischat.utils.PlaceholderAPIHook;
+import net.lapismc.lapischat.hooks.PlaceholderAPIHook;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

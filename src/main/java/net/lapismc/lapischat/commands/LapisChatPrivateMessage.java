@@ -16,8 +16,13 @@ public class LapisChatPrivateMessage extends LapisChatCommand {
                 new ArrayList<>(plugin.getConfig().getStringList("PrivateMessageCommands")));
     }
 
-    @Override
+
+    //This is required but never used
     protected void onCommand(CommandSender sender, String[] args) {
+    }
+
+    @Override
+    protected void onCommand(CommandSender sender, String commandLabel, String[] args) {
         //tell dart2112|console a message I don't want the world to see
         if (args.length >= 2) {
             UUID receiverUUID;
@@ -40,7 +45,7 @@ public class LapisChatPrivateMessage extends LapisChatCommand {
             String msg = getMessageFromArray(args);
             plugin.messageManager.sendMessage(senderUUID, receiverUUID, msg);
         } else {
-            sendMessage(sender, "Help.PrivateMessage");
+            sender.sendMessage(plugin.config.getMessage("Help.PrivateMessage").replace("LapisChatPrivateMessage", commandLabel));
         }
     }
 

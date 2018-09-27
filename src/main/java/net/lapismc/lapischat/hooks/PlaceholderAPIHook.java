@@ -1,4 +1,4 @@
-package net.lapismc.lapischat.utils;
+package net.lapismc.lapischat.hooks;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.OfflinePlayer;

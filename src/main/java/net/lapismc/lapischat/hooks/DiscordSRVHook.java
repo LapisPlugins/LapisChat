@@ -1,4 +1,4 @@
-package net.lapismc.lapischat.utils;
+package net.lapismc.lapischat.hooks;
 
 import github.scarsz.discordsrv.DiscordSRV;
 import org.bukkit.entity.Player;
