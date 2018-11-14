@@ -17,3 +17,9 @@
 - "Added /r or /reply to reply to the last person who communicated with you"
 - "Moved to LapisCore for the core of the plugin, this means LapisChat will get bug fixes when my other plugins do"
 - "Minor bug fixes"
+1.0.5:
+- "Added DiscordSRV hook"
+- "Using command label for private message help message"
+- "Moved hooks to their own package"
+1.0.6:
+- "Fixed player receiving double messages, players will only be added to a channel if they aren't currently in it"

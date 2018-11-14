@@ -92,7 +92,8 @@ public abstract class Channel {
      * @param p The player to add to this channel
      */
     protected void forceAddPlayer(ChatPlayer p) {
-        players.add(p);
+        if (!players.contains(p))
+            players.add(p);
     }
 
     /**

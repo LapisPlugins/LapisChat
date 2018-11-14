@@ -65,8 +65,7 @@ public class ChatPlayer {
      * @param channel The channel you wish to add
      */
     public void addChannel(Channel channel) {
-        channels.add(channel);
-        channel.addPlayer(this);
+        forceAddChannel(channel);
     }
 
     /**
@@ -76,7 +75,8 @@ public class ChatPlayer {
      */
     public void forceAddChannel(Channel channel) {
         channel.forceAddPlayer(this);
-        channels.add(channel);
+        if (!channels.contains(channel))
+            channels.add(channel);
     }
 
     /**
@@ -86,7 +86,7 @@ public class ChatPlayer {
      * @param channel The channel you want the player to be removed from
      */
     public void removeChannel(Channel channel) {
-        if (mainChannel != null && mainChannel.equals(channel)) {
+        if (channel.equals(mainChannel)) {
             mainChannel = null;
         }
         channel.removePlayer(this);
