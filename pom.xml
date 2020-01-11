@@ -96,10 +96,6 @@
             <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
         </repository>
         <repository>
-            <id>sonatype</id>
-            <url>https://oss.sonatype.org/content/groups/public/</url>
-        </repository>
-        <repository>
             <id>vault-repo</id>
             <url>http://nexus.hc.to/content/repositories/pub_releases</url>
         </repository>
@@ -107,26 +103,18 @@
             <id>placeholderAPI</id>
             <url>http://repo.extendedclip.com/content/repositories/placeholderapi/</url>
         </repository>
-        <repository>
-            <id>DiscordSRV</id>
-            <url>http://ci.scarsz.me/plugin/repository/everything/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
     </repositories>
 
     <dependencies>
         <dependency>
             <groupId>net.lapismc</groupId>
             <artifactId>LapisCore</artifactId>
-            <version>LATEST</version>
+            <version>1.7.4</version>
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
-            <version>1.13-R0.1-SNAPSHOT</version>
+            <version>1.15.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -142,9 +130,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>github.scarsz.discordsrv</groupId>
-            <artifactId>DiscordSRV</artifactId>
-            <version>1.16.4</version>
+            <groupId>com.discordsrv</groupId>
+            <artifactId>discordsrv</artifactId>
+            <version>1.18.4</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

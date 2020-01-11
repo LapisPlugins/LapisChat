@@ -62,11 +62,13 @@ class LapisChatListeners implements Listener {
             player.getPlayer().sendMessage(plugin.config.getMessage("Error.NotInChannel"));
             return;
         }
-        LapisChatEvent event = new LapisChatEvent(channel, player, e.getMessage());
-        Bukkit.getPluginManager().callEvent(event);
-        if (!event.isCancelled()) {
-            channel.sendMessage(player, event.getMessage(), event.getFormat());
-        }
+        Bukkit.getScheduler().runTask(plugin, () -> {
+            LapisChatEvent event = new LapisChatEvent(channel, player, e.getMessage());
+            Bukkit.getPluginManager().callEvent(event);
+            if (!event.isCancelled()) {
+                channel.sendMessage(player, event.getMessage(), event.getFormat());
+            }
+        });
     }
 
 }

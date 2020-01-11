@@ -1,30 +1,22 @@
 package net.lapismc.lapischat.events;
 
-import org.bukkit.event.Cancellable;
-import org.bukkit.event.Event;
-import org.bukkit.event.HandlerList;
+import net.lapismc.lapiscore.LapisCoreCancellableEvent;
 
 import java.util.UUID;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
-public class LapisMessageEvent extends Event implements Cancellable {
+public class LapisMessageEvent extends LapisCoreCancellableEvent {
 
-    public static HandlerList handlers = new HandlerList();
     private UUID sender;
     private UUID receiver;
     private String message;
     private String format;
-    private boolean cancelled;
 
     public LapisMessageEvent(UUID sender, UUID receiver, String message, String format) {
         this.sender = sender;
         this.receiver = receiver;
         this.message = message;
         this.format = format;
-    }
-
-    public static HandlerList getHandlerList() {
-        return handlers;
     }
 
     /**
@@ -65,18 +57,4 @@ public class LapisMessageEvent extends Event implements Cancellable {
         return format;
     }
 
-    @Override
-    public boolean isCancelled() {
-        return cancelled;
-    }
-
-    @Override
-    public void setCancelled(boolean cancel) {
-        cancelled = cancel;
-    }
-
-    @Override
-    public HandlerList getHandlers() {
-        return handlers;
-    }
 }
