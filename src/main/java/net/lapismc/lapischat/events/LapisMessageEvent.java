@@ -1,6 +1,6 @@
 package net.lapismc.lapischat.events;
 
-import net.lapismc.lapiscore.LapisCoreCancellableEvent;
+import net.lapismc.lapiscore.events.LapisCoreCancellableEvent;
 
 import java.util.UUID;
 

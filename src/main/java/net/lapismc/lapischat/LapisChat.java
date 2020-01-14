@@ -10,8 +10,8 @@ import net.lapismc.lapischat.framework.ChatPlayer;
 import net.lapismc.lapischat.utils.LapisUpdater;
 import net.lapismc.lapischat.utils.Metrics;
 import net.lapismc.lapiscore.LapisCoreConfiguration;
-import net.lapismc.lapiscore.LapisCoreFileWatcher;
 import net.lapismc.lapiscore.LapisCorePlugin;
+import net.lapismc.lapiscore.utils.LapisCoreFileWatcher;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 

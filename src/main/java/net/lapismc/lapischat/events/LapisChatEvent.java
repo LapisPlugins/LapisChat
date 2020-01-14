@@ -2,7 +2,7 @@ package net.lapismc.lapischat.events;
 
 import net.lapismc.lapischat.framework.Channel;
 import net.lapismc.lapischat.framework.ChatPlayer;
-import net.lapismc.lapiscore.LapisCoreCancellableEvent;
+import net.lapismc.lapiscore.events.LapisCoreCancellableEvent;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class LapisChatEvent extends LapisCoreCancellableEvent {

@@ -7,8 +7,8 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Local extends Channel {
 
@@ -22,10 +22,10 @@ public class Local extends Channel {
     }
 
     @Override
-    public List<ChatPlayer> getRecipients(ChatPlayer p) {
+    public Set<ChatPlayer> getRecipients(ChatPlayer p) {
         if (p.getOfflinePlayer().isOnline()) {
             Player player = p.getPlayer();
-            ArrayList<ChatPlayer> nearby = new ArrayList<>();
+            Set<ChatPlayer> nearby = new HashSet<>();
             double range = LapisChat.getInstance().getConfig().getInt("Channels.Local.Range");
             for (Entity e : player.getNearbyEntities(range, range, range)) {
                 if (e instanceof Player) {
@@ -35,6 +35,6 @@ public class Local extends Channel {
             nearby.add(p);
             return nearby;
         }
-        return new ArrayList<>();
+        return new HashSet<>();
     }
 }

@@ -10,13 +10,13 @@ import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @SuppressWarnings("WeakerAccess")
 public abstract class Channel {
 
-    protected List<ChatPlayer> players = new ArrayList<>();
+    protected Set<ChatPlayer> players = new HashSet<>();
     private String name;
     private String prefix;
     private String format;
@@ -92,8 +92,7 @@ public abstract class Channel {
      * @param p The player to add to this channel
      */
     protected void forceAddPlayer(ChatPlayer p) {
-        if (!players.contains(p))
-            players.add(p);
+        players.add(p);
     }
 
     /**
@@ -114,7 +113,7 @@ public abstract class Channel {
      * @param p the player sending a message to the channel
      * @return Returns a list of ChatPlayers that will receive the message
      */
-    protected List<ChatPlayer> getRecipients(ChatPlayer p) {
+    protected Set<ChatPlayer> getRecipients(ChatPlayer p) {
         return players;
     }
 

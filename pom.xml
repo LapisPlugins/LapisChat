@@ -3,7 +3,7 @@
 
     <groupId>net.lapismc</groupId>
     <artifactId>LapisChat</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
     <packaging>jar</packaging>
 
     <name>LapisChat</name>
@@ -14,7 +14,7 @@
 
     <build>
         <finalName>${project.name}</finalName>
-        <defaultGoal>clean package</defaultGoal>
+        <defaultGoal>clean install</defaultGoal>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -109,7 +109,7 @@
         <dependency>
             <groupId>net.lapismc</groupId>
             <artifactId>LapisCore</artifactId>
-            <version>1.7.4</version>
+            <version>1.7.5</version>
         </dependency>
         <dependency>
             <groupId>org.spigotmc</groupId>
