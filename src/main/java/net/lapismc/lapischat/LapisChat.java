@@ -13,7 +13,6 @@ import net.lapismc.lapiscore.LapisCoreConfiguration;
 import net.lapismc.lapiscore.LapisCorePlugin;
 import net.lapismc.lapiscore.utils.LapisCoreFileWatcher;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -23,8 +22,6 @@ public final class LapisChat extends LapisCorePlugin {
     private static LapisChat instance;
     public ChannelManager channelManager;
     public MessageManager messageManager;
-    public String primaryColor = ChatColor.WHITE.toString();
-    public String secondaryColor = ChatColor.AQUA.toString();
     private HashMap<UUID, ChatPlayer> players = new HashMap<>();
     public UUID consoleUUID = UUID.nameUUIDFromBytes("Console".getBytes());
 
@@ -37,7 +34,6 @@ public final class LapisChat extends LapisCorePlugin {
         instance = this;
         registerConfiguration(new LapisCoreConfiguration(this, 3, 3));
         Bukkit.getScheduler().runTaskAsynchronously(this, this::updateCheck);
-        Bukkit.getScheduler().runTaskLaterAsynchronously(this, this::playerCleanup, 20 * 60 * 5);
         channelManager = new ChannelManager();
         channelManager.addChannel(new Global());
         channelManager.addChannel(new Local());
@@ -54,13 +50,6 @@ public final class LapisChat extends LapisCorePlugin {
         for (ChatPlayer player : players.values()) {
             player.savePlayerData();
         }
-    }
-
-    private void playerCleanup() {
-        for (ChatPlayer player : players.values()) {
-            player.savePlayerData();
-        }
-        players.clear();
     }
 
     private void updateCheck() {

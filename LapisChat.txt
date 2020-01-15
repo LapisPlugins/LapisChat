@@ -1,8 +1,0 @@
-LapisChat
-
-Cross Server support?
-
-LapisChat.(Channel)
-LapisChat.Moderate.(Channel)
-LapisChat.AutoJoin.(Channel) only on first connect
-LapisChat.SetMain.(Channel) every logon

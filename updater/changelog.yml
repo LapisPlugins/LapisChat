@@ -26,3 +26,5 @@
 1.0.7:
   - "Updated to LapisCore 1.7.5"
   - "Better fix for duplicated messages"
+1.0.8:
+  - "Fixed duplicated chat at last, tried and tested this time"
