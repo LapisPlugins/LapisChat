@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Spigot Test Server" type="JarApplication" singleton="true">
+    <option name="JAR_PATH" value="$USER_HOME$/Documents/Spigot/Spigot.jar" />
+    <option name="WORKING_DIRECTORY" value="$USER_HOME$/Documents/Spigot" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <method v="2">
+      <option name="Maven.BeforeRunTask" enabled="true" file="$PROJECT_DIR$/pom.xml" goal="" />
+      <option name="BuildArtifacts" enabled="true">
+        <artifact name="Copy to server" />
+      </option>
+    </method>
+  </configuration>
+</component>
