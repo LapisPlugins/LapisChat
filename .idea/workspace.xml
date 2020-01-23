@@ -6,8 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c979ec8c-38a0-4f20-aaed-b4df9930b055" name="Default Changelist" comment="Update to 1.15.2&#10;Add idea files">
+    <list default="true" id="c979ec8c-38a0-4f20-aaed-b4df9930b055" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +176,7 @@
       <workItem from="1578723313452" duration="349000" />
       <workItem from="1578988523224" duration="819000" />
       <workItem from="1579092289438" duration="3397000" />
-      <workItem from="1579750347412" duration="150000" />
+      <workItem from="1579750347412" duration="169000" />
     </task>
     <task id="LOCAL-00001" summary="Setup /channel command&#10;Also some general cleanup">
       <created>1532774690960</created>
@@ -338,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579096274132</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Update to 1.15.2&#10;Add idea files">
+      <created>1579750507062</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1579750507062</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers>
       <YouTrack url="https://lapisplugins.myjetbrains.com/youtrack">
         <option name="defaultSearch" value="sort by: updated #Unresolved" />
@@ -385,7 +393,8 @@
     <MESSAGE value="Updated for newer versions" />
     <MESSAGE value="Update 1.0.7&#10;Update to LapisCore 1.7.5&#10;Implemented Sets for channels in place of lists" />
     <MESSAGE value="Update 1.0.8&#10;Finally fixed the duplicated chat issue, turned out I was an idiot doing things I didn't need to" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update 1.0.8&#10;Finally fixed the duplicated chat issue, turned out I was an idiot doing things I didn't need to" />
+    <MESSAGE value="Update to 1.15.2&#10;Add idea files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update to 1.15.2&#10;Add idea files" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -395,35 +404,35 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2338" y="182" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750429462" />
-    <state x="2241" y="110" width="1155" height="822" key="CommitChangelistDialog2" timestamp="1579750489250">
+    <state x="2241" y="110" width="1155" height="822" key="CommitChangelistDialog2" timestamp="1579750527933">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="321" y="107" width="1155" height="822" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1920.1080@0.0.1920.1050" timestamp="1579096273938" />
-    <state x="2241" y="110" width="1267" height="822" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750489250" />
+    <state x="2241" y="110" width="1267" height="822" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750527933" />
     <state x="2663" y="282" width="424" height="479" key="FileChooserDialogImpl" timestamp="1579750444646">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2663" y="282" width="424" height="479" key="FileChooserDialogImpl/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750444646" />
-    <state width="1878" height="279" key="GridCell.Tab.0.bottom" timestamp="1579750497664">
+    <state width="1878" height="279" key="GridCell.Tab.0.bottom" timestamp="1579750510287">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1080@0.0.1920.1050" timestamp="1579096314258" />
-    <state width="1878" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750497664" />
-    <state width="1878" height="279" key="GridCell.Tab.0.center" timestamp="1579750497663">
+    <state width="1878" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750510287" />
+    <state width="1878" height="279" key="GridCell.Tab.0.center" timestamp="1579750510287">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="279" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1080@0.0.1920.1050" timestamp="1579096314258" />
-    <state width="1878" height="279" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750497663" />
-    <state width="1878" height="279" key="GridCell.Tab.0.left" timestamp="1579750497663">
+    <state width="1878" height="279" key="GridCell.Tab.0.center/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750510287" />
+    <state width="1878" height="279" key="GridCell.Tab.0.left" timestamp="1579750510286">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="279" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1080@0.0.1920.1050" timestamp="1579096314257" />
-    <state width="1878" height="279" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750497663" />
-    <state width="1878" height="279" key="GridCell.Tab.0.right" timestamp="1579750497663">
+    <state width="1878" height="279" key="GridCell.Tab.0.left/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750510286" />
+    <state width="1878" height="279" key="GridCell.Tab.0.right" timestamp="1579750510287">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="279" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1080@0.0.1920.1050" timestamp="1579096314258" />
-    <state width="1878" height="279" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750497663" />
+    <state width="1878" height="279" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750510287" />
     <state x="2363" y="101" width="1024" height="840" key="SettingsEditor" timestamp="1579750496418">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
