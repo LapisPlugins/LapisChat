@@ -167,17 +167,23 @@ public abstract class Channel {
      * @param format The finalised format
      */
     public void sendMessage(ChatPlayer from, String msg, String format) {
+        //Send to players
         msg = format(from, msg, format);
         for (ChatPlayer p : getRecipients(from)) {
             p.sendMessage(msg);
         }
+        //send to console
+        String consoleMsg;
+        if (LapisChat.getInstance().getConfig().getBoolean("StripColorFromConsole")) {
+            consoleMsg = ChatColor.stripColor(msg);
+        } else {
+            consoleMsg = msg;
+        }
+        Bukkit.getLogger().info(consoleMsg);
+        //Send to discord
         if (Bukkit.getPluginManager().isPluginEnabled("DiscordSRV") && LapisChat.getInstance().getConfig().getStringList("ChannelsForDiscord").contains(getName())) {
             DiscordSRVHook.logToDiscord(from.getPlayer(), msg);
         }
-        if (LapisChat.getInstance().getConfig().getBoolean("StripColorFromConsole")) {
-            msg = ChatColor.stripColor(msg);
-        }
-        Bukkit.getLogger().info(msg);
     }
 
     /**
