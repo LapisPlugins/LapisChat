@@ -3,7 +3,7 @@ package net.lapismc.lapischat.commands;
 import net.lapismc.lapischat.LapisChat;
 import net.lapismc.lapischat.framework.Channel;
 import net.lapismc.lapischat.framework.ChatPlayer;
-import net.lapismc.lapischat.utils.LapisUpdater;
+import net.lapismc.lapiscore.utils.LapisUpdater;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 
@@ -67,7 +67,7 @@ public class LapisChatCommand extends net.lapismc.lapischat.utils.LapisChatComma
             sendMessage(sender, "Error.NotPermitted");
             return;
         }
-        LapisUpdater updater = new LapisUpdater(plugin);
+        LapisUpdater updater = new LapisUpdater(plugin, "LapisChat", "LapisPlugins", "LapisChat", "master");
         if (updater.checkUpdate()) {
             sender.sendMessage("Update available, downloading now");
             updater.downloadUpdate();

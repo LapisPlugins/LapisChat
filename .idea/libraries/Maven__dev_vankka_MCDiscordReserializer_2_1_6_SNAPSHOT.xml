@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: dev.vankka:MCDiscordReserializer:2.1.6-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/dev/vankka/MCDiscordReserializer/2.1.6-SNAPSHOT/MCDiscordReserializer-2.1.6-20200403.214121-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/dev/vankka/MCDiscordReserializer/2.1.6-SNAPSHOT/MCDiscordReserializer-2.1.6-20200403.214121-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/dev/vankka/MCDiscordReserializer/2.1.6-SNAPSHOT/MCDiscordReserializer-2.1.6-20200403.214121-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -28,3 +28,8 @@
   - "Better fix for duplicated messages"
 1.0.8:
   - "Fixed duplicated chat at last, tried and tested this time"
+1.1.0:
+  - "Updated to latest LapisCore"
+  - "Built against latest Spigot 1.17.1"
+  - "Switched to Gradle for building"
+  - "Minor code cleanup etc."

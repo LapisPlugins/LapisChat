@@ -17,8 +17,8 @@ import java.util.concurrent.TimeUnit;
 
 class LapisChatListeners implements Listener {
 
-    private LapisChat plugin;
-    private Cache<ChatPlayer, String> lastMessage;
+    private final LapisChat plugin;
+    private final Cache<ChatPlayer, String> lastMessage;
 
     LapisChatListeners(LapisChat plugin) {
         this.plugin = plugin;
@@ -48,8 +48,11 @@ class LapisChatListeners implements Listener {
         }
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerChat(AsyncPlayerChatEvent e) {
+        //Disregard cancelled chat events since this means another plugin stopped it
+        if (e.isCancelled())
+            return;
         e.setCancelled(true);
         ChatPlayer player = plugin.getPlayer(e.getPlayer().getUniqueId());
         if (lastMessage.getIfPresent(player) != null) {

@@ -13,18 +13,20 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.bukkit.Bukkit.getServer;
+
 @SuppressWarnings("WeakerAccess")
 public abstract class Channel {
 
     protected Set<ChatPlayer> players = new HashSet<>();
-    private String name;
-    private String prefix;
+    private final String name;
+    private final String prefix;
     private String format;
     private Chat vaultChat;
-    private Permission perm;
-    private String shortName;
-    private Permission setMainPerm;
-    private Permission autoJoinPerm;
+    private final Permission perm;
+    private final String shortName;
+    private final Permission setMainPerm;
+    private final Permission autoJoinPerm;
 
     /**
      * Use this constructor if you wish to use the default format
@@ -43,7 +45,12 @@ public abstract class Channel {
         this.perm.setDefault(PermissionDefault.FALSE);
         this.autoJoinPerm = new Permission("LapisChat.AutoJoin." + name, PermissionDefault.FALSE);
         this.setMainPerm = new Permission("LapisChat.SetMain." + name, PermissionDefault.FALSE);
-        RegisteredServiceProvider<Chat> rsp = Bukkit.getServer().getServicesManager().getRegistration(Chat.class);
+        RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
+        if (rsp == null) {
+            LapisChat.getInstance().getLogger().severe("Vault not provided, shutting down plugin");
+            Bukkit.getPluginManager().disablePlugin(LapisChat.getInstance());
+            return;
+        }
         vaultChat = rsp.getProvider();
     }
 
@@ -179,7 +186,7 @@ public abstract class Channel {
         } else {
             consoleMsg = msg;
         }
-        Bukkit.getLogger().info(consoleMsg);
+        Bukkit.getServer().getLogger().info(consoleMsg);
         //Send to discord
         if (Bukkit.getPluginManager().isPluginEnabled("DiscordSRV") && LapisChat.getInstance().getConfig().getStringList("ChannelsForDiscord").contains(getName())) {
             DiscordSRVHook.logToDiscord(from.getPlayer(), msg);

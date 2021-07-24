@@ -1,7 +1,7 @@
 name: LapisChat
 version: ${project.version}
 main: net.lapismc.lapischat.LapisChat
-api-version: 1.15
+api-version: 1.17
 authors: [Dart2112]
 depend: [Vault]
 softdepend: [PlaceholderAPI, DiscordSRV]

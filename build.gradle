@@ -1,0 +1,152 @@
+/*
+ * Copyright 2021 Benjamin Martin
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+plugins {
+    id 'java'
+    id 'maven'
+    id 'signing'
+    id "com.github.johnrengelman.shadow" version "5.2.0"
+    id 'io.codearte.nexus-staging' version '0.30.0'
+}
+
+group = 'net.lapismc'
+archivesBaseName = "LapisChat"
+version = '1.1.0'
+description = "A spiritual seccessor to HeroChat, build from the ground up to be simple and extendable"
+sourceCompatibility = '11'
+targetCompatibility = '11'
+defaultTasks 'clean', 'build', 'shadowJar', 'install', 'copyDocsForGithub'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    //Spigot Repo
+    maven {
+        url = uri('https://hub.spigotmc.org/nexus/content/groups/public/')
+    }
+    //Vault Repo
+    maven {
+        url = uri('http://nexus.hc.to/content/repositories/pub_releases/')
+    }
+    //PlaceholderAPI Repo
+    maven {
+        url = uri('http://repo.extendedclip.com/content/repositories/placeholderapi/')
+    }
+}
+
+dependencies {
+    compile 'net.lapismc:LapisCore:1.8.2'
+    compileOnly 'net.milkbowl.vault:VaultAPI:1.7'
+    compileOnly 'me.clip:placeholderapi:2.9.1'
+    compileOnly 'com.discordsrv:discordsrv:1.19.0'
+    compileOnly 'org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT'
+}
+
+processResources {
+    filter {
+        it.replace('${project.version}', project.getVersion())
+    }
+}
+
+shadowJar {
+    archiveFileName.set(archivesBaseName + ".jar")
+    exclude 'javax/**'
+    relocate("net.lapismc.lapiscore", "net.lapismc.lapischat.utils.core")
+}
+
+javadoc {
+    source = sourceSets.main.allJava
+    include("net/lapismc/lapischat/api/*.java")
+    include("net/lapismc/lapischat/framework/*.java")
+    include("net/lapismc/lapischat/events/*.java")
+}
+
+
+task javadocJar(type: Jar) {
+    archiveClassifier.set('javadoc')
+    from javadoc
+}
+
+tasks.register('copyDocsForGithub', Copy) {
+    from layout.buildDirectory.dir("docs/javadoc")
+    into layout.projectDirectory.dir("docs")
+}
+
+task sourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+nexusStaging {
+    packageGroup = "net.lapismc" //optional if packageGroup == project.getGroup()
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+
+            pom.project {
+                name = project.archivesBaseName
+                packaging 'jar'
+                // optionally artifactId can be defined here
+                description = project.description
+                url 'https://github.com/LapisPlugins/LapisChat'
+
+                scm {
+                    connection 'git@github.com:LapisPlugins/LapisChat.git'
+                    developerConnection 'git@github.com:LapisPlugins/LapisChat.git'
+                    url 'https://github.com/LapisPlugins/LapisChat'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'Dart2112'
+                        name 'Benjamin Martin'
+                        email 'dart2112@lapismc.net'
+                    }
+                }
+            }
+        }
+    }
+}

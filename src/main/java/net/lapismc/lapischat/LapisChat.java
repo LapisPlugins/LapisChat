@@ -7,11 +7,11 @@ import net.lapismc.lapischat.commands.LapisChatCommand;
 import net.lapismc.lapischat.commands.LapisChatPrivateMessage;
 import net.lapismc.lapischat.commands.LapisChatReply;
 import net.lapismc.lapischat.framework.ChatPlayer;
-import net.lapismc.lapischat.utils.LapisUpdater;
-import net.lapismc.lapischat.utils.Metrics;
 import net.lapismc.lapiscore.LapisCoreConfiguration;
 import net.lapismc.lapiscore.LapisCorePlugin;
 import net.lapismc.lapiscore.utils.LapisCoreFileWatcher;
+import net.lapismc.lapiscore.utils.LapisUpdater;
+import net.lapismc.lapiscore.utils.Metrics;
 import org.bukkit.Bukkit;
 
 import java.util.HashMap;
@@ -22,8 +22,9 @@ public final class LapisChat extends LapisCorePlugin {
     private static LapisChat instance;
     public ChannelManager channelManager;
     public MessageManager messageManager;
-    private HashMap<UUID, ChatPlayer> players = new HashMap<>();
     public UUID consoleUUID = UUID.nameUUIDFromBytes("Console".getBytes());
+    private final HashMap<UUID, ChatPlayer> players = new HashMap<>();
+    private LapisCoreFileWatcher fileWatcher;
 
     public static LapisChat getInstance() {
         return instance;
@@ -40,7 +41,7 @@ public final class LapisChat extends LapisCorePlugin {
         messageManager = new MessageManager(this);
         new LapisChatListeners(this);
         registerCommands();
-        new LapisCoreFileWatcher(this);
+        fileWatcher = new LapisCoreFileWatcher(this);
         new Metrics(this);
         getLogger().info(getName() + " v" + getDescription().getVersion() + " has been enabled");
     }
@@ -50,10 +51,11 @@ public final class LapisChat extends LapisCorePlugin {
         for (ChatPlayer player : players.values()) {
             player.savePlayerData();
         }
+        fileWatcher.stop();
     }
 
     private void updateCheck() {
-        LapisUpdater lp = new LapisUpdater(this);
+        LapisUpdater lp = new LapisUpdater(this, "LapisChat", "LapisPlugins", "LapisChat", "master");
         if (lp.checkUpdate()) {
             if (getConfig().getBoolean("Update.Download")) {
                 getLogger().info("Update has been found and will be installed on the next restart");

@@ -19,7 +19,7 @@ package net.lapismc.lapischat.utils;
 import net.lapismc.lapischat.LapisChat;
 import net.lapismc.lapischat.framework.Channel;
 import net.lapismc.lapischat.framework.ChatPlayer;
-import net.lapismc.lapiscore.LapisCoreCommand;
+import net.lapismc.lapiscore.commands.LapisCoreCommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
