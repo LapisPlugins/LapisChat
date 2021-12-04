@@ -2,10 +2,7 @@ package net.lapismc.lapischat;
 
 import net.lapismc.lapischat.channels.Global;
 import net.lapismc.lapischat.channels.Local;
-import net.lapismc.lapischat.commands.LapisChatChannel;
-import net.lapismc.lapischat.commands.LapisChatCommand;
-import net.lapismc.lapischat.commands.LapisChatPrivateMessage;
-import net.lapismc.lapischat.commands.LapisChatReply;
+import net.lapismc.lapischat.commands.*;
 import net.lapismc.lapischat.framework.ChatPlayer;
 import net.lapismc.lapiscore.LapisCoreConfiguration;
 import net.lapismc.lapiscore.LapisCorePlugin;
@@ -20,10 +17,10 @@ import java.util.UUID;
 public final class LapisChat extends LapisCorePlugin {
 
     private static LapisChat instance;
+    private final HashMap<UUID, ChatPlayer> players = new HashMap<>();
     public ChannelManager channelManager;
     public MessageManager messageManager;
     public UUID consoleUUID = UUID.nameUUIDFromBytes("Console".getBytes());
-    private final HashMap<UUID, ChatPlayer> players = new HashMap<>();
     private LapisCoreFileWatcher fileWatcher;
 
     public static LapisChat getInstance() {
@@ -75,6 +72,7 @@ public final class LapisChat extends LapisCorePlugin {
 
     private void registerCommands() {
         new LapisChatChannel(this);
+        new LapisChatChannelList(this);
         new LapisChatCommand(this);
         new LapisChatPrivateMessage(this);
         new LapisChatReply(this);

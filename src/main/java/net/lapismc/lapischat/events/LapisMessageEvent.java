@@ -4,14 +4,24 @@ import net.lapismc.lapiscore.events.LapisCoreCancellableEvent;
 
 import java.util.UUID;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
+/**
+ * This event is fired when a player sends a private message to another player on the server
+ */
 public class LapisMessageEvent extends LapisCoreCancellableEvent {
 
-    private UUID sender;
-    private UUID receiver;
-    private String message;
+    private final UUID sender;
+    private final UUID receiver;
+    private final String message;
     private String format;
 
+    /**
+     * Prepare to send a message
+     *
+     * @param sender   The sender of the message
+     * @param receiver The recipient of the message
+     * @param message  The message content
+     * @param format   The format being used for displaying in chat
+     */
     public LapisMessageEvent(UUID sender, UUID receiver, String message, String format) {
         this.sender = sender;
         this.receiver = receiver;

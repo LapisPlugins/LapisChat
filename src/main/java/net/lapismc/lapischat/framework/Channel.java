@@ -15,18 +15,23 @@ import java.util.Set;
 
 import static org.bukkit.Bukkit.getServer;
 
-@SuppressWarnings("WeakerAccess")
+/**
+ * This class represents a chat channel and handles every interaction with this channel
+ */
 public abstract class Channel {
 
-    protected Set<ChatPlayer> players = new HashSet<>();
     private final String name;
     private final String prefix;
-    private String format;
-    private Chat vaultChat;
     private final Permission perm;
     private final String shortName;
     private final Permission setMainPerm;
     private final Permission autoJoinPerm;
+    /**
+     * List of players who are currently in this channel
+     */
+    protected Set<ChatPlayer> players = new HashSet<>();
+    private String format;
+    private Chat vaultChat;
 
     /**
      * Use this constructor if you wish to use the default format

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ChannelManager {
 
-    private List<Channel> channels = new ArrayList<>();
+    private final List<Channel> channels = new ArrayList<>();
 
     public void addChannel(Channel channel) {
         channels.add(channel);

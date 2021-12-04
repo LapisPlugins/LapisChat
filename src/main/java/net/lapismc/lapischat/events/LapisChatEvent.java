@@ -4,14 +4,23 @@ import net.lapismc.lapischat.framework.Channel;
 import net.lapismc.lapischat.framework.ChatPlayer;
 import net.lapismc.lapiscore.events.LapisCoreCancellableEvent;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
+/**
+ * This event is fired when a player sends a chat message
+ */
 public class LapisChatEvent extends LapisCoreCancellableEvent {
 
-    private Channel channel;
-    private ChatPlayer sender;
-    private String message;
+    private final Channel channel;
+    private final ChatPlayer sender;
+    private final String message;
     private String format;
 
+    /**
+     * Prepare to send a chat
+     *
+     * @param channel The channel that the message will be sent in
+     * @param sender  The sender of the message
+     * @param message The message the player is sending
+     */
     public LapisChatEvent(Channel channel, ChatPlayer sender, String message) {
         this.channel = channel;
         this.sender = sender;

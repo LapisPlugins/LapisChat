@@ -12,13 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@SuppressWarnings("WeakerAccess")
+/**
+ * This class represents a player using LapisChat
+ */
 public class ChatPlayer {
 
-    private UUID uuid;
+    private final UUID uuid;
     private Channel mainChannel;
-    private List<Channel> channels = new ArrayList<>();
-    private List<Channel> bannedChannels = new ArrayList<>();
+    private final List<Channel> channels = new ArrayList<>();
+    private final List<Channel> bannedChannels = new ArrayList<>();
 
     /**
      * @param uuid The Unique ID of the player you wish to access

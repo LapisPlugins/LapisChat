@@ -12,9 +12,9 @@ import java.util.UUID;
 
 public class MessageManager {
 
-    private Chat vaultChat;
-    private LapisChat plugin;
-    private HashMap<UUID, UUID> conversations = new HashMap<>();
+    private final Chat vaultChat;
+    private final LapisChat plugin;
+    private final HashMap<UUID, UUID> conversations = new HashMap<>();
 
     MessageManager(LapisChat plugin) {
         this.plugin = plugin;
