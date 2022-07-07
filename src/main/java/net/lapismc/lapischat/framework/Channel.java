@@ -13,8 +13,6 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.bukkit.Bukkit.getServer;
-
 /**
  * This class represents a chat channel and handles every interaction with this channel
  */
@@ -31,7 +29,7 @@ public abstract class Channel {
      */
     protected Set<ChatPlayer> players = new HashSet<>();
     private String format;
-    private Chat vaultChat;
+    private final Chat vaultChat;
 
     /**
      * Use this constructor if you wish to use the default format
@@ -50,12 +48,7 @@ public abstract class Channel {
         this.perm.setDefault(PermissionDefault.FALSE);
         this.autoJoinPerm = new Permission("LapisChat.AutoJoin." + name, PermissionDefault.FALSE);
         this.setMainPerm = new Permission("LapisChat.SetMain." + name, PermissionDefault.FALSE);
-        RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);
-        if (rsp == null) {
-            LapisChat.getInstance().getLogger().severe("Vault not provided, shutting down plugin");
-            Bukkit.getPluginManager().disablePlugin(LapisChat.getInstance());
-            return;
-        }
+        RegisteredServiceProvider<Chat> rsp = Bukkit.getServer().getServicesManager().getRegistration(Chat.class);
         vaultChat = rsp.getProvider();
     }
 
