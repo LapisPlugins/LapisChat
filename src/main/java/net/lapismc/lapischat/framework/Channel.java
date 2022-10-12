@@ -209,9 +209,8 @@ public abstract class Channel {
         finalMessage = finalMessage.replace("{SUFFIX}", playerSuffix);
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             finalMessage = new PlaceholderAPIHook().format(finalMessage, from.getOfflinePlayer());
-        } else {
-            finalMessage = ChatColor.translateAlternateColorCodes('&', finalMessage);
         }
+        finalMessage = ChatColor.translateAlternateColorCodes('&', finalMessage);
         finalMessage = finalMessage.replaceAll(" {2}", " ");
         finalMessage = finalMessage.replace("{MESSAGE}", msg);
         return finalMessage;

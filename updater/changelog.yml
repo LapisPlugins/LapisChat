@@ -33,3 +33,6 @@
   - "Built against latest Spigot 1.17.1"
   - "Switched to Gradle for building"
   - "Minor code cleanup etc."
+1.1.1:
+  - "Update dependencies including LapisCore, DiscordSRV and Spigot"
+  - "Fixed messages not being coloured if PAPI is in use"

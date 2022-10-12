@@ -9,109 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c979ec8c-38a0-4f20-aaed-b4df9930b055" name="Default Changelist" comment="Updated to attempt to fix console logging of chat">
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_discordsrv_discordsrv_1_18_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_kevinsawicki_http_request_6_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_zafarkhaja_java_semver_0_9_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_mashape_unirest_unirest_java_1_4_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_neovisionaries_nv_websocket_client_2_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_13_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_17_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vdurmont_emoji_java_3_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__github_scarsz_configuralize_1_3_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_persistence_persistence_api_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__me_vankka_MCDiscordReserializer_2_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__me_vankka_SimpleAST_2_0_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_16.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_dv8tion_JDA_4_0_0_56.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_text_adapter_bukkit_3_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_text_api_3_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_text_serializer_gson_3_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_kyori_text_serializer_legacy_3_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_lapismc_LapisCore_1_7_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_md_5_bungeecord_chat_1_13_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_milkbowl_vault_VaultAPI_1_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_trove4j_trove4j_3_0_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpasyncclient_4_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_nio_4_4_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_5_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_avaje_ebean_2_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_bukkit_bukkit_1_9_R0_1_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_2_5_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_16_0_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_json_json_20160212.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_minidns_minidns_client_0_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_minidns_minidns_core_0_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_minidns_minidns_dnssec_0_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_minidns_minidns_hla_0_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_minidns_minidns_iterative_resolver_0_3_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_jdk14_1_7_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_spigotmc_spigot_api_1_15_1_R0_1_SNAPSHOT.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_25.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Install_LapisChat.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations/Spigot_Test_Server.xml" beforeDir="false" />
+    <list default="true" id="c979ec8c-38a0-4f20-aaed-b4df9930b055" name="Default Changelist" comment="Update 1.1.0&#10;Updated to latest LapisCore&#10;Built against latest Spigot 1.17.1&#10;Switched to Gradle for building&#10;Minor code cleanup etc.">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/LapisChat.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/LapisChat.main.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LapisChat.iml" beforeDir="false" afterPath="$PROJECT_DIR$/LapisChat.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/allclasses-frame.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/allclasses-noframe.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/constant-values.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/deprecated-list.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/help-doc.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index-all.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/api/ChannelAPI.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/api/class-use/ChannelAPI.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/api/package-frame.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/api/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/api/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/api/package-use.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/events/LapisChatEvent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/events/class-use/LapisChatEvent.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/events/package-frame.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/events/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/events/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/events/package-use.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/framework/Channel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/framework/ChatPlayer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/framework/class-use/Channel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/framework/class-use/ChatPlayer.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/framework/package-frame.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/framework/package-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/framework/package-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/net/lapismc/lapischat/framework/package-use.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/overview-frame.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/overview-summary.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/overview-tree.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/package-list" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/script.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/stylesheet.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/LapisChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/LapisChat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/LapisChatListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/LapisChatListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/commands/LapisChatCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/commands/LapisChatCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/framework/Channel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/framework/Channel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/utils/LapisChatCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/utils/LapisChatCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/utils/LapisUpdater.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/net/lapismc/lapischat/utils/Metrics.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/updater/changelog.yml" beforeDir="false" afterPath="$PROJECT_DIR$/updater/changelog.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/updater/update.yml" beforeDir="false" afterPath="$PROJECT_DIR$/updater/update.yml" afterDir="false" />
     </list>
@@ -155,6 +59,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -169,37 +76,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="add_unversioned_files" value="true" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538011207403" />
-    <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Join and Leave Messages" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/benja/IdeaProjects/LapisChat"
+  }
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\benja\IdeaProjects\LapisChat" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="net.lapismc.lapischat.events" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/updater/LapisChat" />
       <recent name="C:\Users\benja\IdeaProjects\LapisChat\updater\LapisChat" />
@@ -207,8 +92,14 @@
       <recent name="C:\Users\benja\IdeaProjects\LapisChat\src\main\java\net\lapismc\lapischat" />
       <recent name="C:\Users\benja\IdeaProjects\LapisChat\src\main\java\net\lapismc\lapischat\utils" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\benja\IdeaProjects\LapisChat" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="net.lapismc.lapischat.events" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.Deploy LapisChat">
+  <component name="RunManager" selected="Gradle.Build LapisChat">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -217,17 +108,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -318,7 +198,9 @@
       <workItem from="1605580523310" duration="3507000" />
       <workItem from="1605584462734" duration="140000" />
       <workItem from="1627021084506" duration="37000" />
-      <workItem from="1627126654822" duration="2048000" />
+      <workItem from="1627126654822" duration="2772000" />
+      <workItem from="1627130004040" duration="625000" />
+      <workItem from="1665563066846" duration="1187000" />
     </task>
     <task id="LOCAL-00001" summary="Setup /channel command&#10;Also some general cleanup">
       <created>1532774690960</created>
@@ -502,7 +384,21 @@
       <option name="project" value="LOCAL" />
       <updated>1585196996500</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update 1.1.0&#10;Updated to latest LapisCore&#10;Built against latest Spigot 1.17.1&#10;Switched to Gradle for building&#10;Minor code cleanup etc.">
+      <created>1627128807253</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1627128807253</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Added updated jar file">
+      <created>1627129171741</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1627129171741</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers>
       <YouTrack url="https://lapisplugins.myjetbrains.com/youtrack">
         <option name="defaultSearch" value="sort by: updated #Unresolved" />
@@ -538,8 +434,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Setup /channel command&#10;Also some general cleanup" />
-    <MESSAGE value="Added rate limit and permissions to join channels" />
     <MESSAGE value="Tested, everything is now working&#10;Ready to start on LapisChatFactions" />
     <MESSAGE value="Changes to allow factions and other APIs to edit the chat format" />
     <MESSAGE value="Added but not yet tested auto join and auto set main" />
@@ -563,7 +457,9 @@
     <MESSAGE value="Update to 1.15.2&#10;Add idea files" />
     <MESSAGE value=".gitignore and dictionary update" />
     <MESSAGE value="Updated to attempt to fix console logging of chat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated to attempt to fix console logging of chat" />
+    <MESSAGE value="Update 1.1.0&#10;Updated to latest LapisCore&#10;Built against latest Spigot 1.17.1&#10;Switched to Gradle for building&#10;Minor code cleanup etc." />
+    <MESSAGE value="Added updated jar file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added updated jar file" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
