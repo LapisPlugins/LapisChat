@@ -6,9 +6,16 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.List;
 
-@SuppressWarnings("unused")
+/**
+ * External API for accessing channels
+ */
 public class ChannelAPI {
 
+    /**
+     * Get an instance of the API
+     *
+     * @param plugin The plugin you are using to access the API
+     */
     public ChannelAPI(JavaPlugin plugin) {
         LapisChat.getInstance().getLogger().info("Plugin " + plugin.getName() + " has hooked into the Channel API");
     }

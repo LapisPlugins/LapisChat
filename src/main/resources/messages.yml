@@ -1,4 +1,4 @@
-ConfigVersion: 3
+ConfigVersion: 4
 
 PrimaryColor: "&f"
 SecondaryColor: "&b"
@@ -13,6 +13,8 @@ Channel:
   Banned: "&pYou are banned from &s%CHANNEL%"
   Unbanned: "&pYour ban for &s%CHANNEL%&p has been removed"
   NotPermitted: "&pYou aren't permitted to join &s%CHANNEL%"
+  ChannelList: "&pBelow is a list of the channels you can join:"
+  ChannelListEmpty: "&pYou cannot join any channels"
 
 Moderator:
   Banned: "&s%PLAYER%&p has been banned from &s%CHANNEL%"
