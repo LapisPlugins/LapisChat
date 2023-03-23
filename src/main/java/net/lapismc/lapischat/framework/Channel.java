@@ -178,6 +178,7 @@ public abstract class Channel {
             p.sendMessage(msg);
         }
         //send to console
+        //TODO: Allow disabling of messages being sent to console
         String consoleMsg;
         if (LapisChat.getInstance().getConfig().getBoolean("StripColorFromConsole")) {
             consoleMsg = ChatColor.stripColor(msg);

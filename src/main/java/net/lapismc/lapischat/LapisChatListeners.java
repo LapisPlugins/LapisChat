@@ -53,21 +53,28 @@ class LapisChatListeners implements Listener {
         //Disregard cancelled chat events since this means another plugin stopped it
         if (e.isCancelled())
             return;
+        //Cancel the chat event so that we don't get duplicated chat
         e.setCancelled(true);
         ChatPlayer player = plugin.getPlayer(e.getPlayer().getUniqueId());
+        //Don't allow the player to send a message if this message violates the rate limit
         if (lastMessage.getIfPresent(player) != null) {
             player.getPlayer().sendMessage(plugin.config.getMessage("Error.RateLimited"));
             return;
         }
+        //Log this message for future rate limiting
         lastMessage.put(player, "");
+        //Get the players current main channel, this is the channel that all send messages should go to
         Channel channel = player.getMainChannel();
+        //Channel will be null if the player isn't in a channel. Stop and alert the player to this
         if (channel == null) {
             player.getPlayer().sendMessage(plugin.config.getMessage("Error.NotInChannel"));
             return;
         }
         Bukkit.getScheduler().runTask(plugin, () -> {
+            //Trigger event so that plugins using the API can edit or cancel the event
             LapisChatEvent event = new LapisChatEvent(channel, player, e.getMessage());
             Bukkit.getPluginManager().callEvent(event);
+            //Only process the message if the event isn't cancelled
             if (!event.isCancelled()) {
                 channel.sendMessage(player, event.getMessage(), event.getFormat());
             }
