@@ -175,14 +175,14 @@ CompressedObject.prototype = {
     }
 };
 
-        /**
-         * Chain the given worker with other workers to compress the content with the
-         * given compression.
-         * @param {GenericWorker} uncompressedWorker the worker to pipe.
-         * @param {Object} compression the compression object.
-         * @param {Object} compressionOptions the options to use when compressing.
-         * @return {GenericWorker} the new worker compressing the content.
-         */
+/**
+ * Chain the given worker with other workers to compress the content with the
+ * given compression.
+ * @param {GenericWorker} uncompressedWorker the worker to pipe.
+ * @param {Object} compression the compression object.
+ * @param {Object} compressionOptions the options to use when compressing.
+ * @return {GenericWorker} the new worker compressing the content.
+ */
 CompressedObject.createWorkerFrom = function (uncompressedWorker, compression, compressionOptions) {
     return uncompressedWorker
         .pipe(new Crc32Probe())
@@ -1110,14 +1110,14 @@ function checkEntryCRC32(zipEntry) {
             });
 
             if (nodejsUtils.isNode && nodejsUtils.isStream(data)) {
-        return external.Promise.reject(new Error("JSZip can't accept a stream when loading a zip file."));
-    }
+                return external.Promise.reject(new Error("JSZip can't accept a stream when loading a zip file."));
+            }
 
-    return utils.prepareContent("the loaded zip file", data, true, options.optimizedBinaryString, options.base64)
-        .then(function (data) {
-            var zipEntries = new ZipEntries(options);
-            zipEntries.load(data);
-            return zipEntries;
+            return utils.prepareContent("the loaded zip file", data, true, options.optimizedBinaryString, options.base64)
+                .then(function (data) {
+                    var zipEntries = new ZipEntries(options);
+                    zipEntries.load(data);
+                    return zipEntries;
         }).then(function checkCRC32(zipEntries) {
             var promises = [external.Promise.resolve(zipEntries)];
             var files = zipEntries.files;
@@ -8103,7 +8103,7 @@ module.exports = function inflate_fast(strm, start) {
           }
           else if ((op & 64) === 0) {          /* 2nd level distance code */
             here = dcode[(here & 0xffff)/*here.val*/ + (hold & ((1 << op) - 1))];
-            continue;
+              continue;
           }
           else {
             strm.msg = 'invalid distance code';
@@ -8116,7 +8116,7 @@ module.exports = function inflate_fast(strm, start) {
       }
       else if ((op & 64) === 0) {              /* 2nd level length code */
         here = lcode[(here & 0xffff)/*here.val*/ + (hold & ((1 << op) - 1))];
-        continue;
+          continue;
       }
       else if (op & 32) {                     /* end-of-block */
         //Tracevv((stderr, "inflate:         end of block\n"));

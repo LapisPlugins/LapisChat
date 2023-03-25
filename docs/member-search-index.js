@@ -2,72 +2,72 @@ memberSearchIndex = [{
     "p": "net.lapismc.lapischat.api",
     "c": "ChannelAPI",
     "l": "addChannel(Channel)",
-    "u": "addChannel(net.lapismc.lapischat.framework.Channel)"
+    "url": "addChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "addChannel(Channel)",
-    "u": "addChannel(net.lapismc.lapischat.framework.Channel)"
+    "url": "addChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "Channel",
     "l": "addPlayer(ChatPlayer)",
-    "u": "addPlayer(net.lapismc.lapischat.framework.ChatPlayer)"
+    "url": "addPlayer(net.lapismc.lapischat.framework.ChatPlayer)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "Channel",
     "l": "applyDefaultFormat(ChatPlayer, String, String)",
-    "u": "applyDefaultFormat(net.lapismc.lapischat.framework.ChatPlayer,java.lang.String,java.lang.String)"
+    "url": "applyDefaultFormat(net.lapismc.lapischat.framework.ChatPlayer,java.lang.String,java.lang.String)"
 }, {
     "p": "net.lapismc.lapischat.events",
     "c": "LapisChatEvent",
     "l": "applyFormat(String, String)",
-    "u": "applyFormat(java.lang.String,java.lang.String)"
+    "url": "applyFormat(java.lang.String,java.lang.String)"
 }, {
     "p": "net.lapismc.lapischat.events",
     "c": "LapisMessageEvent",
     "l": "applyFormat(String, String)",
-    "u": "applyFormat(java.lang.String,java.lang.String)"
+    "url": "applyFormat(java.lang.String,java.lang.String)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "banFromChannel(Channel)",
-    "u": "banFromChannel(net.lapismc.lapischat.framework.Channel)"
-}, {
-    "p": "net.lapismc.lapischat.framework",
-    "c": "Channel",
-    "l": "Channel(String, String, String, Permission)",
-    "u": "%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,org.bukkit.permissions.Permission)"
+    "url": "banFromChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "Channel",
     "l": "Channel(String, String, String, Permission, String)",
-    "u": "%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,org.bukkit.permissions.Permission,java.lang.String)"
+    "url": "%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,org.bukkit.permissions.Permission,java.lang.String)"
+}, {
+    "p": "net.lapismc.lapischat.framework",
+    "c": "Channel",
+    "l": "Channel(String, String, String, Permission)",
+    "url": "%3Cinit%3E(java.lang.String,java.lang.String,java.lang.String,org.bukkit.permissions.Permission)"
 }, {
     "p": "net.lapismc.lapischat.api",
     "c": "ChannelAPI",
     "l": "ChannelAPI(JavaPlugin)",
-    "u": "%3Cinit%3E(org.bukkit.plugin.java.JavaPlugin)"
+    "url": "%3Cinit%3E(org.bukkit.plugin.java.JavaPlugin)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "ChatPlayer(UUID)",
-    "u": "%3Cinit%3E(java.util.UUID)"
+    "url": "%3Cinit%3E(java.util.UUID)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "forceAddChannel(Channel)",
-    "u": "forceAddChannel(net.lapismc.lapischat.framework.Channel)"
+    "url": "forceAddChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "Channel",
     "l": "forceAddPlayer(ChatPlayer)",
-    "u": "forceAddPlayer(net.lapismc.lapischat.framework.ChatPlayer)"
+    "url": "forceAddPlayer(net.lapismc.lapischat.framework.ChatPlayer)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "Channel",
     "l": "format(ChatPlayer, String, String)",
-    "u": "format(net.lapismc.lapischat.framework.ChatPlayer,java.lang.String,java.lang.String)"
+    "url": "format(net.lapismc.lapischat.framework.ChatPlayer,java.lang.String,java.lang.String)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "Channel",
@@ -76,7 +76,7 @@ memberSearchIndex = [{
     "p": "net.lapismc.lapischat.api",
     "c": "ChannelAPI",
     "l": "getChannel(String)",
-    "u": "getChannel(java.lang.String)"
+    "url": "getChannel(java.lang.String)"
 }, {"p": "net.lapismc.lapischat.api", "c": "ChannelAPI", "l": "getChannels()"}, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
@@ -125,7 +125,7 @@ memberSearchIndex = [{
     "p": "net.lapismc.lapischat.framework",
     "c": "Channel",
     "l": "getRecipients(ChatPlayer)",
-    "u": "getRecipients(net.lapismc.lapischat.framework.ChatPlayer)"
+    "url": "getRecipients(net.lapismc.lapischat.framework.ChatPlayer)"
 }, {
     "p": "net.lapismc.lapischat.events",
     "c": "LapisChatEvent",
@@ -146,32 +146,32 @@ memberSearchIndex = [{
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "isBannedFromChannel(Channel)",
-    "u": "isBannedFromChannel(net.lapismc.lapischat.framework.Channel)"
+    "url": "isBannedFromChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "isInChannel(Channel)",
-    "u": "isInChannel(net.lapismc.lapischat.framework.Channel)"
+    "url": "isInChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.events",
     "c": "LapisChatEvent",
     "l": "LapisChatEvent(Channel, ChatPlayer, String)",
-    "u": "%3Cinit%3E(net.lapismc.lapischat.framework.Channel,net.lapismc.lapischat.framework.ChatPlayer,java.lang.String)"
+    "url": "%3Cinit%3E(net.lapismc.lapischat.framework.Channel,net.lapismc.lapischat.framework.ChatPlayer,java.lang.String)"
 }, {
     "p": "net.lapismc.lapischat.events",
     "c": "LapisMessageEvent",
     "l": "LapisMessageEvent(UUID, UUID, String, String)",
-    "u": "%3Cinit%3E(java.util.UUID,java.util.UUID,java.lang.String,java.lang.String)"
+    "url": "%3Cinit%3E(java.util.UUID,java.util.UUID,java.lang.String,java.lang.String)"
 }, {"p": "net.lapismc.lapischat.framework", "c": "Channel", "l": "players"}, {
     "p": "net.lapismc.lapischat.api",
     "c": "ChannelAPI",
     "l": "removeChannel(Channel)",
-    "u": "removeChannel(net.lapismc.lapischat.framework.Channel)"
+    "url": "removeChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "removeChannel(Channel)",
-    "u": "removeChannel(net.lapismc.lapischat.framework.Channel)"
+    "url": "removeChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
@@ -180,21 +180,20 @@ memberSearchIndex = [{
     "p": "net.lapismc.lapischat.framework",
     "c": "Channel",
     "l": "sendMessage(ChatPlayer, String, String)",
-    "u": "sendMessage(net.lapismc.lapischat.framework.ChatPlayer,java.lang.String,java.lang.String)"
+    "url": "sendMessage(net.lapismc.lapischat.framework.ChatPlayer,java.lang.String,java.lang.String)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "sendMessage(String)",
-    "u": "sendMessage(java.lang.String)"
+    "url": "sendMessage(java.lang.String)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "setMainChannel(Channel)",
-    "u": "setMainChannel(net.lapismc.lapischat.framework.Channel)"
+    "url": "setMainChannel(net.lapismc.lapischat.framework.Channel)"
 }, {
     "p": "net.lapismc.lapischat.framework",
     "c": "ChatPlayer",
     "l": "unBanFromChannel(Channel)",
-    "u": "unBanFromChannel(net.lapismc.lapischat.framework.Channel)"
-}];
-updateSearchResults();
+    "url": "unBanFromChannel(net.lapismc.lapischat.framework.Channel)"
+}]
