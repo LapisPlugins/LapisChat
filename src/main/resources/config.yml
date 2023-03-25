@@ -1,4 +1,4 @@
-ConfigVersion: 3
+ConfigVersion: 4
 
 Update:
   #Notify console of updates?
@@ -18,9 +18,9 @@ PrivateMessageFormat: "{SENDER_PREFIX}{SENDER} &7>&f {RECEIVER_PREFIX}{RECEIVER}
 
 #These commands can be used as aliases for /LapisChatPrivateMessage
 PrivateMessageCommands:
-- "msg"
-- "tell"
-- "pm"
+  - "msg"
+  - "tell"
+  - "pm"
 
 # How often in milliseconds can a player send a message
 RateLimit: 1000
@@ -28,7 +28,10 @@ RateLimit: 1000
 #Chanels to log on DiscordSRV
 #Any chanels on this list will be sent to DiscordSRV, You must use the pull channel name
 ChannelsForDiscord:
-- "Global"
+  - "Global"
+
+#Enable this setting to hide chat messages from console. Can be useful if you have a busy server and don't want chat messages clogging up console
+HideChatFromConsole: false
 
 #Enable this if your console doesn't support color codes but still shows them, this will also apply to discord if you have DiscordSRV installed
 StripColorFromConsole: false

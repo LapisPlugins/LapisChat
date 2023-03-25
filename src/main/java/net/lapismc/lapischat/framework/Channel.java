@@ -178,14 +178,15 @@ public abstract class Channel {
             p.sendMessage(msg);
         }
         //send to console
-        //TODO: Allow disabling of messages being sent to console
         String consoleMsg;
         if (LapisChat.getInstance().getConfig().getBoolean("StripColorFromConsole")) {
             consoleMsg = ChatColor.stripColor(msg);
         } else {
             consoleMsg = msg;
         }
-        Bukkit.getServer().getLogger().info(consoleMsg);
+        //Only send the console message if HideChatFromConsole is false
+        if (!LapisChat.getInstance().getConfig().getBoolean("HideChatFromConsole"))
+            Bukkit.getServer().getLogger().info(consoleMsg);
         //Send to discord
         if (Bukkit.getPluginManager().isPluginEnabled("DiscordSRV") && LapisChat.getInstance().getConfig().getStringList("ChannelsForDiscord").contains(getName())) {
             DiscordSRVHook.logToDiscord(from.getPlayer(), msg);
