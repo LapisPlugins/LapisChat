@@ -16,19 +16,17 @@
 
 plugins {
     id 'java'
-    id 'maven'
-    id 'signing'
-    id "com.github.johnrengelman.shadow" version "5.2.0"
-    id 'io.codearte.nexus-staging' version '0.30.0'
+    id 'maven-publish'
+    id "com.github.johnrengelman.shadow" version "8.1.1"
 }
 
 group = 'net.lapismc'
 archivesBaseName = "LapisChat"
-version = '1.1.1'
+version = '1.1.2'
 description = "A spiritual seccessor to HeroChat, build from the ground up to be simple and extendable"
-sourceCompatibility = '11'
-targetCompatibility = '11'
-defaultTasks 'clean', 'build', 'shadowJar', 'install', 'copyDocsForGithub'
+sourceCompatibility = '17'
+targetCompatibility = '17'
+defaultTasks 'clean', 'build', 'shadowJar'
 
 repositories {
     mavenCentral()
@@ -37,13 +35,18 @@ repositories {
     maven {
         url = uri('https://hub.spigotmc.org/nexus/content/groups/public/')
     }
+    //Personal Repo
+    maven {
+        name = "lapismc-repo"
+        url = "https://maven.lapismc.net/repository/maven/"
+    }
     //Vault Repo
     maven {
-        url = uri('http://nexus.hc.to/content/repositories/pub_releases/')
+        url = uri('https://nexus.hc.to/content/repositories/pub_releases/')
     }
     //PlaceholderAPI Repo
     maven {
-        url = uri('http://repo.extendedclip.com/content/repositories/placeholderapi/')
+        url = uri('https://repo.extendedclip.com/content/repositories/placeholderapi/')
     }
     //Discord SRV
     maven { url 'https://nexus.scarsz.me/content/groups/public/' }
@@ -51,11 +54,11 @@ repositories {
 }
 
 dependencies {
-    compile 'net.lapismc:LapisCore:1.11.0'
+    implementation 'net.lapismc:LapisCore:1.12.10'
     compileOnly 'net.milkbowl.vault:VaultAPI:1.7'
-    compileOnly 'me.clip:placeholderapi:2.11.2'
-    compileOnly 'com.discordsrv:discordsrv:1.26.0'
-    compileOnly 'org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.11.5'
+    compileOnly 'com.discordsrv:discordsrv:1.26.2'
+    compileOnly 'org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT'
 }
 
 processResources {
@@ -78,78 +81,42 @@ javadoc {
 }
 
 
-task javadocJar(type: Jar) {
+tasks.register('javadocJar', Jar) {
     archiveClassifier.set('javadoc')
     from javadoc
 }
 
-tasks.register('copyDocsForGithub', Copy) {
-    from layout.buildDirectory.dir("docs/javadoc")
-    into layout.projectDirectory.dir("docs")
-}
-
-task sourcesJar(type: Jar) {
+tasks.register('sourcesJar', Jar) {
     archiveClassifier.set('sources')
     from sourceSets.main.allSource
 }
 
 artifacts {
-    archives javadocJar, sourcesJar
+    archives javadocJar, sourcesJar, shadowJar
 }
 
-signing {
-    useGpgCmd()
-    sign configurations.archives
-}
-
-tasks.withType(JavaCompile) {
+tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
 }
 
-nexusStaging {
-    packageGroup = "net.lapismc" //optional if packageGroup == project.getGroup()
+java {
+    withSourcesJar()
+    withJavadocJar()
 }
 
-uploadArchives {
+publishing {
+    publications {
+        shadow(MavenPublication) {
+            from components.java
+        }
+    }
     repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: ossrhUsername, password: ossrhPassword)
-            }
-
-            pom.project {
-                name = project.archivesBaseName
-                packaging 'jar'
-                // optionally artifactId can be defined here
-                description = project.description
-                url 'https://github.com/LapisPlugins/LapisChat'
-
-                scm {
-                    connection 'git@github.com:LapisPlugins/LapisChat.git'
-                    developerConnection 'git@github.com:LapisPlugins/LapisChat.git'
-                    url 'https://github.com/LapisPlugins/LapisChat'
-                }
-
-                licenses {
-                    license {
-                        name 'The Apache License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'Dart2112'
-                        name 'Benjamin Martin'
-                        email 'dart2112@lapismc.net'
-                    }
-                }
+        maven {
+            name 'nexus'
+            url "https://nexus.dnablue2112.com/repository/maven-releases/"
+            credentials {
+                username repoUser
+                password repoPassword
             }
         }
     }

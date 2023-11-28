@@ -39,7 +39,7 @@ public final class LapisChat extends LapisCorePlugin {
         new LapisChatListeners(this);
         registerCommands();
         fileWatcher = new LapisCoreFileWatcher(this);
-        new Metrics(this);
+        new Metrics(this, 2985);
         getLogger().info(getName() + " v" + getDescription().getVersion() + " has been enabled");
     }
 
