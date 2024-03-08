@@ -164,7 +164,8 @@ public class ChatPlayer {
         for (Channel channel : channels) {
             list.add(channel.getName());
         }
-        yaml.set("Channel", getMainChannel().getName());
+        if (getMainChannel() != null)
+            yaml.set("Channel", getMainChannel().getName());
         yaml.set("Channels", list);
         try {
             yaml.save(file);

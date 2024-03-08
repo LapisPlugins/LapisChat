@@ -1,4 +1,4 @@
-ConfigVersion: 4
+ConfigVersion: 5
 
 Update:
   #Notify console of updates?
@@ -26,7 +26,7 @@ PrivateMessageCommands:
 RateLimit: 1000
 
 #Chanels to log on DiscordSRV
-#Any chanels on this list will be sent to DiscordSRV, You must use the pull channel name
+#Any channels on this list will be sent to DiscordSRV, You must use the pull channel name
 ChannelsForDiscord:
   - "Global"
 
@@ -35,6 +35,9 @@ HideChatFromConsole: false
 
 #Enable this if your console doesn't support color codes but still shows them, this will also apply to discord if you have DiscordSRV installed
 StripColorFromConsole: false
+
+#Use a GUI to join and leave channels, when disabled you must use /ch commands
+ChannelListGUI: true
 
 Channels:
   Global:

@@ -101,7 +101,7 @@ public abstract class Channel {
     }
 
     /**
-     * Removes the player from the channels player list meaning this player wont receive messages from this channel
+     * Removes the player from the channels player list meaning this player won't receive messages from this channel
      * NOTE: this doesn't stop the player sending messages to this channel, it only stops them seeing messages from it
      *
      * @param p The player to be removed from this channel

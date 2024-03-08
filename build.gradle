@@ -23,7 +23,7 @@ plugins {
 group = 'net.lapismc'
 archivesBaseName = "LapisChat"
 version = '1.1.2'
-description = "A spiritual seccessor to HeroChat, build from the ground up to be simple and extendable"
+description = "A spiritual successor to HeroChat, build from the ground up to be simple and extendable"
 sourceCompatibility = '17'
 targetCompatibility = '17'
 defaultTasks 'clean', 'build', 'shadowJar'
@@ -54,11 +54,12 @@ repositories {
 }
 
 dependencies {
-    implementation 'net.lapismc:LapisCore:1.12.10'
+    implementation 'net.lapismc:LapisCore:1.12.12'
+    implementation 'net.lapismc:LapisUI:1.4.2'
     compileOnly 'net.milkbowl.vault:VaultAPI:1.7'
     compileOnly 'me.clip:placeholderapi:2.11.5'
-    compileOnly 'com.discordsrv:discordsrv:1.26.2'
-    compileOnly 'org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT'
+    compileOnly 'com.discordsrv:discordsrv:1.27.0'
+    compileOnly 'org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT'
 }
 
 processResources {
@@ -71,6 +72,7 @@ shadowJar {
     archiveFileName.set(archivesBaseName + ".jar")
     exclude 'javax/**'
     relocate("net.lapismc.lapiscore", "net.lapismc.lapischat.utils.core")
+    relocate("net.lapismc.lapisui", "net.lapismc.lapischat.utils.ui")
 }
 
 javadoc {
