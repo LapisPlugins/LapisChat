@@ -6,7 +6,7 @@ Update:
   #Automatically download and install updates
   Download: false
 
-#Double spaces will be removed, so if a player doesn't have a prefix there wont be a big gap
+#Double spaces will be removed, so if a player doesn't have a prefix there won't be a big gap
 #You can use PlaceholderAPI tags here if it is installed
 #You can add the {FACTION} tag if you have the faction add-on installed
 DefaultFormat: "{CHANNEL_PREFIX} {PREFIX} {NAME} {SUFFIX} &7>&f {MESSAGE}"

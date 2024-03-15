@@ -36,3 +36,8 @@
 1.1.1:
   - "Update dependencies including LapisCore, DiscordSRV and Spigot"
   - "Fixed messages not being coloured if PAPI is in use"
+1.1.2:
+  - "Updated to latest APIs"
+  - "Moved to JDK 17"
+1.1.3:
+  - "Added a UI for listing, joining and leaving channels"

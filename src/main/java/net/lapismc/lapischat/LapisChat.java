@@ -12,6 +12,7 @@ import net.lapismc.lapiscore.utils.Metrics;
 import net.lapismc.lapisui.LapisUI;
 import org.bukkit.Bukkit;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -31,7 +32,7 @@ public final class LapisChat extends LapisCorePlugin {
     @Override
     public void onEnable() {
         instance = this;
-        registerConfiguration(new LapisCoreConfiguration(this, 5, 4));
+        registerConfiguration(new LapisCoreConfiguration(this, 5, 4, new ArrayList<>()));
         Bukkit.getScheduler().runTaskAsynchronously(this, this::updateCheck);
         channelManager = new ChannelManager();
         channelManager.addChannel(new Global());

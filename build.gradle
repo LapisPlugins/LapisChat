@@ -22,7 +22,7 @@ plugins {
 
 group = 'net.lapismc'
 archivesBaseName = "LapisChat"
-version = '1.1.2'
+version = '1.1.3'
 description = "A spiritual successor to HeroChat, build from the ground up to be simple and extendable"
 sourceCompatibility = '17'
 targetCompatibility = '17'
@@ -30,7 +30,6 @@ defaultTasks 'clean', 'build', 'shadowJar'
 
 repositories {
     mavenCentral()
-    mavenLocal()
     //Spigot Repo
     maven {
         url = uri('https://hub.spigotmc.org/nexus/content/groups/public/')
@@ -54,7 +53,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'net.lapismc:LapisCore:1.12.12'
+    implementation 'net.lapismc:LapisCore:1.12.15'
     implementation 'net.lapismc:LapisUI:1.4.2'
     compileOnly 'net.milkbowl.vault:VaultAPI:1.7'
     compileOnly 'me.clip:placeholderapi:2.11.5'
