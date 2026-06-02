@@ -10,7 +10,6 @@ import net.lapismc.lapiscore.utils.LapisCoreFileWatcher;
 import net.lapismc.lapiscore.utils.LapisUpdater;
 import net.lapismc.lapiscore.utils.Metrics;
 import net.lapismc.lapisui.LapisUI;
-import org.bukkit.Bukkit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +22,6 @@ public final class LapisChat extends LapisCorePlugin {
     public ChannelManager channelManager;
     public MessageManager messageManager;
     public UUID consoleUUID = UUID.nameUUIDFromBytes("Console".getBytes());
-    private LapisCoreFileWatcher fileWatcher;
 
     public static LapisChat getInstance() {
         return instance;
@@ -31,9 +29,8 @@ public final class LapisChat extends LapisCorePlugin {
 
     @Override
     public void onEnable() {
-        instance = this;
         registerConfiguration(new LapisCoreConfiguration(this, 5, 4, new ArrayList<>()));
-        Bukkit.getScheduler().runTaskAsynchronously(this, this::updateCheck);
+        tasks.runTask(this::updateCheck, false);
         channelManager = new ChannelManager();
         channelManager.addChannel(new Global());
         channelManager.addChannel(new Local());
@@ -43,7 +40,7 @@ public final class LapisChat extends LapisCorePlugin {
         registerCommands();
         fileWatcher = new LapisCoreFileWatcher(this);
         new Metrics(this, 2985);
-        getLogger().info(getName() + " v" + getDescription().getVersion() + " has been enabled");
+        super.onEnable();
     }
 
     @Override
@@ -51,7 +48,7 @@ public final class LapisChat extends LapisCorePlugin {
         for (ChatPlayer player : players.values()) {
             player.savePlayerData();
         }
-        fileWatcher.stop();
+        super.onDisable();
     }
 
     private void updateCheck() {

@@ -1,8 +1,8 @@
 package net.lapismc.lapischat.framework;
 
 import net.lapismc.lapischat.LapisChat;
-import net.lapismc.lapischat.hooks.DiscordSRVHook;
-import net.lapismc.lapischat.hooks.PlaceholderAPIHook;
+import net.lapismc.lapiscore.placeholder.PlaceholderAPIHook;
+import net.lapismc.lapiscore.utils.LapisCoreDiscordSRVHook;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -81,7 +81,7 @@ public abstract class Channel {
     }
 
     /**
-     * This method wil call {@link #forceAddPlayer(ChatPlayer)}, it is primarily here to be overridden for things like
+     * This method will call {@link #forceAddPlayer(ChatPlayer)}, it is primarily here to be overridden for things like
      * password checks
      *
      * @param p The player to add to this channel
@@ -189,7 +189,7 @@ public abstract class Channel {
             Bukkit.getServer().getLogger().info(consoleMsg);
         //Send to discord
         if (Bukkit.getPluginManager().isPluginEnabled("DiscordSRV") && LapisChat.getInstance().getConfig().getStringList("ChannelsForDiscord").contains(getName())) {
-            DiscordSRVHook.logToDiscord(from.getPlayer(), msg);
+            LapisCoreDiscordSRVHook.pushMessageToDiscord(msg, getName());
         }
     }
 
@@ -208,7 +208,7 @@ public abstract class Channel {
         finalMessage = finalMessage.replace("{NAME}", from.getPlayer().getDisplayName());
         finalMessage = finalMessage.replace("{SUFFIX}", playerSuffix);
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
-            finalMessage = new PlaceholderAPIHook().format(finalMessage, from.getOfflinePlayer());
+            finalMessage = PlaceholderAPIHook.processPlaceholders(from.getOfflinePlayer(), finalMessage);
         }
         finalMessage = ChatColor.translateAlternateColorCodes('&', finalMessage);
         finalMessage = finalMessage.replaceAll(" {2}", " ");

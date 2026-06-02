@@ -35,6 +35,7 @@ public class LapisChatChannel extends LapisChatCommand {
                     if (isNotPermitted(sender, channel.getPermission().getName())) {
                         sendChannelMessage(sender, "Channel.NotPermitted", channel);
                         p.removeChannel(channel);
+                        return;
                     }
                     if (p.getChannels().contains(channel)) {
                         p.setMainChannel(channel);

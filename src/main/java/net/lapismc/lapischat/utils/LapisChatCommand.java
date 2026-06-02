@@ -51,10 +51,9 @@ public abstract class LapisChatCommand extends LapisCoreCommand {
     }
 
     protected boolean isNotPermitted(CommandSender sender, String permission) {
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player p)) {
             return false;
         }
-        Player p = (Player) sender;
         return !p.hasPermission(permission);
     }
 

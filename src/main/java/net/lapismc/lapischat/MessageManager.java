@@ -1,7 +1,7 @@
 package net.lapismc.lapischat;
 
 import net.lapismc.lapischat.events.LapisMessageEvent;
-import net.lapismc.lapischat.hooks.PlaceholderAPIHook;
+import net.lapismc.lapiscore.placeholder.PlaceholderAPIHook;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -79,7 +79,7 @@ public class MessageManager {
             format = format.replace("{RECEIVER_SUFFIX}", "");
         }
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI") && !sender.equals(plugin.consoleUUID)) {
-            format = new PlaceholderAPIHook().format(format, Bukkit.getPlayer(sender));
+            format = PlaceholderAPIHook.processPlaceholders(Bukkit.getPlayer(sender), format);
         } else {
             format = ChatColor.translateAlternateColorCodes('&', format);
         }

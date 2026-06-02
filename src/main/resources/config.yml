@@ -26,7 +26,7 @@ PrivateMessageCommands:
 RateLimit: 1000
 
 #Chanels to log on DiscordSRV
-#Any channels on this list will be sent to DiscordSRV, You must use the pull channel name
+#Any channels on this list will be sent to DiscordSRV, You must use the full channel name
 ChannelsForDiscord:
   - "Global"
 
